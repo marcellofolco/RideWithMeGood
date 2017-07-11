@@ -12,9 +12,15 @@
 		A499B1161F15322800E244B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A499B1141F15322800E244B2 /* Main.storyboard */; };
 		A499B1181F15322800E244B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A499B1171F15322800E244B2 /* Assets.xcassets */; };
 		A499B11B1F15322800E244B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A499B1191F15322800E244B2 /* LaunchScreen.storyboard */; };
+		A499B1281F15361400E244B2 /* courier.gif in Resources */ = {isa = PBXBuildFile; fileRef = A499B1261F15361400E244B2 /* courier.gif */; };
+		A499B1291F15361400E244B2 /* SwiftGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499B1271F15361400E244B2 /* SwiftGif.swift */; };
+		A499B12B1F1536CB00E244B2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A499B12A1F1536CB00E244B2 /* GoogleService-Info.plist */; };
+		E9CC4DF2B0EB58201F8312D1 /* Pods_RideWithMeGood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 395E2454D142E293905ABCB8 /* Pods_RideWithMeGood.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		395E2454D142E293905ABCB8 /* Pods_RideWithMeGood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RideWithMeGood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86861FC56054FD6CAF855B82 /* Pods-RideWithMeGood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideWithMeGood.release.xcconfig"; path = "Pods/Target Support Files/Pods-RideWithMeGood/Pods-RideWithMeGood.release.xcconfig"; sourceTree = "<group>"; };
 		A499B10D1F15322800E244B2 /* RideWithMeGood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideWithMeGood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A499B1101F15322800E244B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A499B1121F15322800E244B2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +28,10 @@
 		A499B1171F15322800E244B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A499B11A1F15322800E244B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A499B11C1F15322800E244B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A499B1261F15361400E244B2 /* courier.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = courier.gif; sourceTree = "<group>"; };
+		A499B1271F15361400E244B2 /* SwiftGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftGif.swift; sourceTree = "<group>"; };
+		A499B12A1F1536CB00E244B2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DB070A4084E4E8A49C60A78B /* Pods-RideWithMeGood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideWithMeGood.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RideWithMeGood/Pods-RideWithMeGood.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +39,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9CC4DF2B0EB58201F8312D1 /* Pods_RideWithMeGood.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19B01F21807FF5940B5E273E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DB070A4084E4E8A49C60A78B /* Pods-RideWithMeGood.debug.xcconfig */,
+				86861FC56054FD6CAF855B82 /* Pods-RideWithMeGood.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9695218A160EBBA1AF9C9056 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				395E2454D142E293905ABCB8 /* Pods_RideWithMeGood.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A499B1041F15322800E244B2 = {
 			isa = PBXGroup;
 			children = (
 				A499B10F1F15322800E244B2 /* RideWithMeGood */,
 				A499B10E1F15322800E244B2 /* Products */,
+				19B01F21807FF5940B5E273E /* Pods */,
+				9695218A160EBBA1AF9C9056 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,10 +84,13 @@
 		A499B10F1F15322800E244B2 /* RideWithMeGood */ = {
 			isa = PBXGroup;
 			children = (
+				A499B12A1F1536CB00E244B2 /* GoogleService-Info.plist */,
 				A499B1101F15322800E244B2 /* AppDelegate.swift */,
 				A499B1121F15322800E244B2 /* ViewController.swift */,
 				A499B1141F15322800E244B2 /* Main.storyboard */,
 				A499B1171F15322800E244B2 /* Assets.xcassets */,
+				A499B1261F15361400E244B2 /* courier.gif */,
+				A499B1271F15361400E244B2 /* SwiftGif.swift */,
 				A499B1191F15322800E244B2 /* LaunchScreen.storyboard */,
 				A499B11C1F15322800E244B2 /* Info.plist */,
 			);
@@ -71,9 +104,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A499B11F1F15322800E244B2 /* Build configuration list for PBXNativeTarget "RideWithMeGood" */;
 			buildPhases = (
+				C2507F6C0B72E50B45752A1B /* [CP] Check Pods Manifest.lock */,
 				A499B1091F15322800E244B2 /* Sources */,
 				A499B10A1F15322800E244B2 /* Frameworks */,
 				A499B10B1F15322800E244B2 /* Resources */,
+				D161FE892383EB19AA4C0B2D /* [CP] Embed Pods Frameworks */,
+				BFD94BE132D6AC22A402B9B0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -124,7 +160,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A499B1281F15361400E244B2 /* courier.gif in Resources */,
 				A499B11B1F15322800E244B2 /* LaunchScreen.storyboard in Resources */,
+				A499B12B1F1536CB00E244B2 /* GoogleService-Info.plist in Resources */,
 				A499B1181F15322800E244B2 /* Assets.xcassets in Resources */,
 				A499B1161F15322800E244B2 /* Main.storyboard in Resources */,
 			);
@@ -132,11 +170,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BFD94BE132D6AC22A402B9B0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RideWithMeGood/Pods-RideWithMeGood-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2507F6C0B72E50B45752A1B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D161FE892383EB19AA4C0B2D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RideWithMeGood/Pods-RideWithMeGood-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A499B1091F15322800E244B2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A499B1291F15361400E244B2 /* SwiftGif.swift in Sources */,
 				A499B1131F15322800E244B2 /* ViewController.swift in Sources */,
 				A499B1111F15322800E244B2 /* AppDelegate.swift in Sources */,
 			);
@@ -259,6 +346,7 @@
 		};
 		A499B1201F15322800E244B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB070A4084E4E8A49C60A78B /* Pods-RideWithMeGood.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MV7HZ99EDM;
@@ -272,6 +360,7 @@
 		};
 		A499B1211F15322800E244B2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86861FC56054FD6CAF855B82 /* Pods-RideWithMeGood.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MV7HZ99EDM;
@@ -302,6 +391,7 @@
 				A499B1211F15322800E244B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

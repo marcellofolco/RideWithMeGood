@@ -7,19 +7,28 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var gifView: UIImageView!
+    @IBOutlet weak var Username: UITextField!
+    
+    @IBOutlet weak var Password: UITextField!
+    @IBOutlet weak var btnLogin: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        gifView.loadGif(name: "courier")
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
-
-
+    
+    
 }
 
