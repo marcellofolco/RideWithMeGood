@@ -16,6 +16,7 @@
 		A499B1291F15361400E244B2 /* SwiftGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499B1271F15361400E244B2 /* SwiftGif.swift */; };
 		A499B12B1F1536CB00E244B2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A499B12A1F1536CB00E244B2 /* GoogleService-Info.plist */; };
 		A499B12E1F1561A900E244B2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499B12D1F1561A900E244B2 /* SignUpViewController.swift */; };
+		A499B1321F16885400E244B2 /* PasswordRecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499B1311F16885400E244B2 /* PasswordRecoveryViewController.swift */; };
 		E9CC4DF2B0EB58201F8312D1 /* Pods_RideWithMeGood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 395E2454D142E293905ABCB8 /* Pods_RideWithMeGood.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		A499B1271F15361400E244B2 /* SwiftGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftGif.swift; sourceTree = "<group>"; };
 		A499B12A1F1536CB00E244B2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A499B12D1F1561A900E244B2 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		A499B1311F16885400E244B2 /* PasswordRecoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryViewController.swift; sourceTree = "<group>"; };
 		DB070A4084E4E8A49C60A78B /* Pods-RideWithMeGood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideWithMeGood.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RideWithMeGood/Pods-RideWithMeGood.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +90,7 @@
 			children = (
 				A499B12A1F1536CB00E244B2 /* GoogleService-Info.plist */,
 				A499B1101F15322800E244B2 /* AppDelegate.swift */,
+				A499B1311F16885400E244B2 /* PasswordRecoveryViewController.swift */,
 				A499B1121F15322800E244B2 /* ViewController.swift */,
 				A499B1141F15322800E244B2 /* Main.storyboard */,
 				A499B12D1F1561A900E244B2 /* SignUpViewController.swift */,
@@ -229,6 +232,7 @@
 				A499B1291F15361400E244B2 /* SwiftGif.swift in Sources */,
 				A499B1131F15322800E244B2 /* ViewController.swift in Sources */,
 				A499B12E1F1561A900E244B2 /* SignUpViewController.swift in Sources */,
+				A499B1321F16885400E244B2 /* PasswordRecoveryViewController.swift in Sources */,
 				A499B1111F15322800E244B2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
