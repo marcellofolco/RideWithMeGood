@@ -28,6 +28,7 @@ class PasswordRecoveryViewController: UIViewController {
         super.didReceiveMemoryWarning()
         
     }
+    
     @IBAction func recoverButtonPressed(_ sender: Any) {
         
         let userEmail = emailTF.text
