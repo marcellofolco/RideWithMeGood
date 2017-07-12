@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  RideWithMeGood
 //
 //  Created by Marcello Folco on 2017-07-11.
@@ -10,12 +10,11 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
     
     @IBOutlet weak var gifView: UIImageView!
-    @IBOutlet weak var Username: UITextField!
-    
-    @IBOutlet weak var Password: UITextField!
+    @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
     
     
@@ -29,6 +28,11 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func btnLogin(_ sender: Any) {
+        
+        guard email
+        
+    }
     
 }
 

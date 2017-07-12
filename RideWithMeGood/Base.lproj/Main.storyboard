@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="kSK-Gr-SGx">
             <objects>
-                <viewController id="6O7-dv-TBC" customClass="ViewController" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6O7-dv-TBC" customClass="LoginViewController" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XUA-sP-ekA"/>
                         <viewControllerLayoutGuide type="bottom" id="H8a-tW-W9Y"/>
@@ -63,6 +63,9 @@
                                                     <constraint firstAttribute="width" secondItem="yJT-SA-ZoP" secondAttribute="height" multiplier="293:30" id="W3h-gW-FRS"/>
                                                 </constraints>
                                                 <state key="normal" image="Login"/>
+                                                <connections>
+                                                    <action selector="btnLogin:" destination="6O7-dv-TBC" eventType="touchUpInside" id="7p0-IE-8y0"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9DW-To-IwS">
                                                 <rect key="frame" x="68" y="600" width="58" height="32"/>
