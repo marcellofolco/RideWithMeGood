@@ -149,9 +149,33 @@
             </objects>
         </scene>
         <!--View Controller-->
+        <scene sceneID="V6j-8N-4Oc">
+            <objects>
+                <viewController storyboardIdentifier="mapVC" id="qhz-gZ-woP" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="P0w-iV-UqF"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hpk-8r-jxR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AaE-ky-wyo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="whY-cG-5Fw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OeZ-4q-Kko" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1007.2" y="50.824587706146929"/>
+        </scene>
+        <!--Sign Up View Controller-->
         <scene sceneID="kcR-AK-shy">
             <objects>
-                <viewController id="Lnd-X7-TUC" sceneMemberID="viewController">
+                <viewController id="Lnd-X7-TUC" customClass="SignUpViewController" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BNN-2L-3hM"/>
                         <viewControllerLayoutGuide type="bottom" id="TwX-4I-xrJ"/>
@@ -178,52 +202,70 @@
                                                     <constraint firstAttribute="width" secondItem="0lF-0p-2c0" secondAttribute="height" multiplier="273:160" id="tPd-te-2kR"/>
                                                 </constraints>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ii4-4S-awf">
-                                                <rect key="frame" x="51" y="147" width="123" height="120"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Last Name " borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="teH-wc-1Kg">
-                                                <rect key="frame" x="203" y="237" width="97" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="teH-wc-1Kg">
+                                                <rect key="frame" x="182" y="237" width="164" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nal-sS-jBh">
-                                                <rect key="frame" x="139" y="296" width="97" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nal-sS-jBh">
+                                                <rect key="frame" x="71" y="311" width="234" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UGN-pi-yg9">
-                                                <rect key="frame" x="139" y="354" width="97" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UGN-pi-yg9">
+                                                <rect key="frame" x="71" y="369" width="234" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Confrim PW" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I5V-Ie-TAL">
-                                                <rect key="frame" x="139" y="409" width="99" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confrim Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I5V-Ie-TAL">
+                                                <rect key="frame" x="71" y="427" width="234" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="First Name " borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ef0-A5-Uah">
-                                                <rect key="frame" x="203" y="153" width="97" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFh-1c-6Wm">
-                                                <rect key="frame" x="119" y="474" width="137" height="30"/>
+                                                <rect key="frame" x="118" y="489" width="137" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Create Account">
                                                     <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="createAccountBtnPressed:" destination="Lnd-X7-TUC" eventType="touchUpInside" id="d8X-dG-mG4"/>
+                                                </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mFG-Ok-1sW">
+                                                <rect key="frame" x="42" y="146" width="119" height="140"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="changeProfilePicPressed:" destination="Lnd-X7-TUC" eventType="touchUpInside" id="x8S-TV-gwM"/>
+                                                </connections>
+                                            </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Profile Pic@1x" translatesAutoresizingMaskIntoConstraints="NO" id="4XJ-dw-6Er">
+                                                <rect key="frame" x="42" y="146" width="119" height="121"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Choose Picture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usb-yy-HJg">
+                                                <rect key="frame" x="42" y="265" width="105" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name " minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ef0-A5-Uah">
+                                                <rect key="frame" x="183" y="191" width="164" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.26274509800000001" green="0.50588235290000005" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -256,10 +298,19 @@
                             <constraint firstItem="9ow-xu-qNC" firstAttribute="top" secondItem="FUm-R9-5we" secondAttribute="top" id="zKx-2O-Sub"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="confirmPasswordTF" destination="I5V-Ie-TAL" id="OBN-vP-ScJ"/>
+                        <outlet property="emailTF" destination="nal-sS-jBh" id="ZwZ-te-hVX"/>
+                        <outlet property="firstNameTF" destination="Ef0-A5-Uah" id="Hel-hU-2OC"/>
+                        <outlet property="gifView" destination="MMp-VJ-2UZ" id="nZO-OV-4h4"/>
+                        <outlet property="imageView" destination="4XJ-dw-6Er" id="Ga8-nH-utV"/>
+                        <outlet property="lastNameTF" destination="teH-wc-1Kg" id="Ioc-Ga-Ha9"/>
+                        <outlet property="passwordTF" destination="UGN-pi-yg9" id="nxE-Kn-P9Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gao-Z8-r5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-527" y="882"/>
+            <point key="canvasLocation" x="-527.20000000000005" y="881.10944527736137"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="w4k-Cs-TWi">
@@ -350,6 +401,7 @@
     </scenes>
     <resources>
         <image name="Login" width="239" height="30"/>
+        <image name="Profile Pic@1x" width="218" height="218"/>
         <image name="courier.gif" width="800" height="600"/>
         <image name="mtlzenlogo" width="960" height="560"/>
     </resources>
