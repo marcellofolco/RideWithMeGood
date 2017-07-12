@@ -90,10 +90,10 @@
 			children = (
 				A499B12A1F1536CB00E244B2 /* GoogleService-Info.plist */,
 				A499B1101F15322800E244B2 /* AppDelegate.swift */,
+				A499B12D1F1561A900E244B2 /* SignUpViewController.swift */,
 				A499B1311F16885400E244B2 /* PasswordRecoveryViewController.swift */,
 				A499B1121F15322800E244B2 /* LoginViewController.swift */,
 				A499B1141F15322800E244B2 /* Main.storyboard */,
-				A499B12D1F1561A900E244B2 /* SignUpViewController.swift */,
 				A499B1171F15322800E244B2 /* Assets.xcassets */,
 				A499B1261F15361400E244B2 /* courier.gif */,
 				A499B1271F15361400E244B2 /* SwiftGif.swift */,

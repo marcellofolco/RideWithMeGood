@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class PasswordRecoveryViewController: UIViewController {
+class PasswordRecoveryViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailTF: UITextField!
     @IBOutlet weak var gifView: UIImageView!
@@ -21,6 +21,25 @@ class PasswordRecoveryViewController: UIViewController {
         super.viewDidLoad()
         
         gifView.loadGif(name: "courier")
+        
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(self.doneClicked))
+        
+        toolBar.setItems([flexibleSpace, doneButton], animated: false)
+        
+        emailTF.inputAccessoryView = toolBar
+
+        
+        self.emailTF.delegate = self
+        
+    }
+    
+    func doneClicked() {
+        view.endEditing(true)
         
     }
 
@@ -58,4 +77,26 @@ class PasswordRecoveryViewController: UIViewController {
     @IBAction func cancelButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    //Hide TouchGesture Keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    // Press return key
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
