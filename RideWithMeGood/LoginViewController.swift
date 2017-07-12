@@ -32,6 +32,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         
         guard emailTF.text != "", passwordTF.text != "" else {return }
         
+        Auth.auth().signIn(withEmail: <#T##String#>, password: <#T##String#>, completion: <#T##AuthResultCallback?##AuthResultCallback?##(User?, Error?) -> Void#>)
+        
     }
     
 }
