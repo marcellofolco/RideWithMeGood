@@ -12,4 +12,10 @@ target 'RideWithMeGood' do
   pod 'Firebase/Storage'
   pod 'GeoFire', :git => 'https://github.com/firebase/geofire-objc.git'
   pod 'Firebase/Invites'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKShareKit'
+  pod 'FBSDKLoginKit'
+
+
+
 end
