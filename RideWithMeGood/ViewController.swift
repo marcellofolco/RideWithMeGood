@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  ViewController.swift
 //  RideWithMeGood
 //
 //  Created by Marcello Folco on 2017-07-11.
@@ -8,13 +8,14 @@
 
 import UIKit
 import Firebase
-import GoogleSignIn
+import FirebaseAuth
 
-class LoginViewController: UIViewController, GIDSignInUIDelegate {
+class ViewController: UIViewController {
     
     @IBOutlet weak var gifView: UIImageView!
-    @IBOutlet weak var emailTF: UITextField!
-    @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var Username: UITextField!
+    
+    @IBOutlet weak var Password: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
     
     
@@ -28,11 +29,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         
     }
     
-    @IBAction func btnLogin(_ sender: Any) {
-        
-        guard emailTF.text != "", passwordTF.text != "" else {return }
-        
-    }
     
 }
 
