@@ -8,9 +8,9 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
+import GoogleSignIn
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     @IBOutlet weak var gifView: UIImageView!
     @IBOutlet weak var emailTF: UITextField!
@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func btnLogin(_ sender: Any) {
         
-        guard email
+        guard emailTF.text != "", passwordTF.text != "" else {return }
         
     }
     
