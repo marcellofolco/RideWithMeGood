@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6O7-dv-TBC">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6O7-dv-TBC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="kSK-Gr-SGx">
             <objects>
-                <viewController id="6O7-dv-TBC" customClass="ViewController" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6O7-dv-TBC" customClass="LoginViewController" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XUA-sP-ekA"/>
                         <viewControllerLayoutGuide type="bottom" id="H8a-tW-W9Y"/>
@@ -40,7 +40,7 @@
                                                     <constraint firstAttribute="width" secondItem="28m-Lh-qHy" secondAttribute="height" multiplier="273:160" id="T6m-Ku-gJg"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2nr-v0-82o">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2nr-v0-82o">
                                                 <rect key="frame" x="68" y="409" width="239" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="0.49582435339999997" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -63,6 +63,9 @@
                                                     <constraint firstAttribute="width" secondItem="yJT-SA-ZoP" secondAttribute="height" multiplier="293:30" id="W3h-gW-FRS"/>
                                                 </constraints>
                                                 <state key="normal" image="Login"/>
+                                                <connections>
+                                                    <action selector="btnLogin:" destination="6O7-dv-TBC" eventType="touchUpInside" id="7p0-IE-8y0"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9DW-To-IwS">
                                                 <rect key="frame" x="68" y="600" width="58" height="32"/>
@@ -139,10 +142,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Password" destination="tr3-iM-0Ya" id="qM8-F7-90q"/>
-                        <outlet property="Username" destination="2nr-v0-82o" id="PDL-JL-xZm"/>
                         <outlet property="btnLogin" destination="yJT-SA-ZoP" id="4ja-U4-wr8"/>
+                        <outlet property="emailTF" destination="2nr-v0-82o" id="1bt-qX-zeR"/>
                         <outlet property="gifView" destination="olq-9j-FxI" id="4ea-64-OKh"/>
+                        <outlet property="passwordTF" destination="tr3-iM-0Ya" id="2gP-0F-qk9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tzf-Av-pKt" sceneMemberID="firstResponder"/>
