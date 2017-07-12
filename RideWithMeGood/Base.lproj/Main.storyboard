@@ -53,7 +53,7 @@
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tr3-iM-0Ya">
                                                 <rect key="frame" x="68" y="447" width="239" height="30"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -266,6 +266,17 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFT-hK-vo5">
+                                                <rect key="frame" x="118" y="527" width="137" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancelButtonPressed:" destination="Lnd-X7-TUC" eventType="touchUpInside" id="m4V-x7-Kw3"/>
+                                                    <action selector="createAccountBtnPressed:" destination="Lnd-X7-TUC" eventType="touchUpInside" id="1eK-ds-Keb"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.26274509800000001" green="0.50588235290000005" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -312,10 +323,10 @@
             </objects>
             <point key="canvasLocation" x="-527.20000000000005" y="881.10944527736137"/>
         </scene>
-        <!--View Controller-->
+        <!--Password Recovery View Controller-->
         <scene sceneID="w4k-Cs-TWi">
             <objects>
-                <viewController id="HfR-c2-EYn" sceneMemberID="viewController">
+                <viewController id="HfR-c2-EYn" customClass="PasswordRecoveryViewController" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qSI-xP-eMN"/>
                         <viewControllerLayoutGuide type="bottom" id="kdh-j4-IdZ"/>
@@ -342,24 +353,34 @@
                                                     <constraint firstAttribute="width" secondItem="vUf-WM-GkN" secondAttribute="height" multiplier="273:160" id="Xpw-Pr-zQP"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fyv-xc-TW4">
-                                                <rect key="frame" x="139" y="212" width="97" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Email" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pjf-DH-P4b">
-                                                <rect key="frame" x="139" y="280" width="97" height="30"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pjf-DH-P4b">
+                                                <rect key="frame" x="68" y="210" width="240" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bph-ev-3PQ">
-                                                <rect key="frame" x="159" y="354" width="56" height="30"/>
+                                                <rect key="frame" x="68" y="267" width="240" height="38"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Recover"/>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Recover">
+                                                    <color key="titleColor" red="0.98293346479999999" green="1" blue="0.99536528440000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="recoverButtonPressed:" destination="HfR-c2-EYn" eventType="touchUpInside" id="ijk-hy-xgK"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hn-MO-YcN">
+                                                <rect key="frame" x="67" y="314" width="240" height="38"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" red="0.98293346479999999" green="1" blue="0.99536528440000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancelButtonPressed:" destination="HfR-c2-EYn" eventType="touchUpInside" id="YDW-Gy-UZ6"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.26274509800000001" green="0.50588235290000005" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -393,10 +414,14 @@
                             <constraint firstItem="7da-rB-DLe" firstAttribute="leading" secondItem="qfe-aM-801" secondAttribute="leading" id="yre-9u-OzO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emailTF" destination="pjf-DH-P4b" id="wbJ-g8-LnT"/>
+                        <outlet property="gifView" destination="Emd-NX-Axy" id="Jzg-6N-HEn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Raq-to-Uaj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="550" y="857"/>
+            <point key="canvasLocation" x="549.60000000000002" y="856.82158920539734"/>
         </scene>
     </scenes>
     <resources>

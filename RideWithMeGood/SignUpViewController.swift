@@ -28,6 +28,11 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
+        self.imageView.clipsToBounds = true;
+        self.imageView.layer.borderWidth = 5.5;
+        self.imageView.layer.borderColor = UIColor.white.cgColor
+        
         gifView.loadGif(name: "courier")
         
         picker.delegate = self
@@ -41,18 +46,38 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     
     @IBAction func changeProfilePicPressed(_ sender: Any) {
-        picker.allowsEditing = true
+        picker.allowsEditing = false
         picker.sourceType = .photoLibrary
-        
+
         present(picker, animated: true, completion: nil)
     }
+//        let alertController = UIAlertController(title: "Select Image", message: nil, preferredStyle: .actionSheet)
+//        alertController.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (action) in
+//            self.showPicker(sourceType: .camera)
+//        }))
+//        alertController.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (action) in
+//            self.showPicker(sourceType: .photoLibrary)
+//        }))
+//
+//        alertController.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil))
+//        self.present(alertController, animated: true, completion: nil)
+//        
+//    }
+    
+//    func showPicker(sourceType:UIImagePickerControllerSourceType){
+//        let picker = UIImagePickerController()
+//        //picker.delegate = self
+//        picker.sourceType = sourceType
+//        present(picker, animated: true, completion: nil)
+//    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerEditedImage] as? UIImage{
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
             self.imageView.image = image
         }
         self.dismiss(animated: true, completion: nil)
     }
+    
     
     @IBAction func createAccountBtnPressed(_ sender: Any) {
         
@@ -132,6 +157,9 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         self.present(myAlert, animated: true, completion: nil);
         
+    }
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 
 
