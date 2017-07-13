@@ -45,11 +45,11 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             
         } else if passwordTF.text! == "" {
             displayMyAlertMessage(userMessage: "Please enter a valid password")
-        
+            
         } else if emailTF.text! == "" {
             displayMyAlertMessage(userMessage: "Please enter a valid email address")
         }
-
+        
         
         guard emailTF.text != "", passwordTF.text != "" else {return }
         
