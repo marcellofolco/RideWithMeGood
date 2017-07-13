@@ -59,14 +59,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		940BC5681F16B4AB0098BD07 /* media */ = {
-			isa = PBXGroup;
-			children = (
-				A499B1261F15361400E244B2 /* courier.gif */,
-			);
-			name = media;
-			sourceTree = "<group>";
-		};
 		9695218A160EBBA1AF9C9056 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,9 +88,9 @@
 		A499B10F1F15322800E244B2 /* RideWithMeGood */ = {
 			isa = PBXGroup;
 			children = (
-				940BC5681F16B4AB0098BD07 /* media */,
 				A499B12A1F1536CB00E244B2 /* GoogleService-Info.plist */,
 				A499B1101F15322800E244B2 /* AppDelegate.swift */,
+				A499B1261F15361400E244B2 /* courier.gif */,
 				A499B12D1F1561A900E244B2 /* SignUpViewController.swift */,
 				A499B1311F16885400E244B2 /* PasswordRecoveryViewController.swift */,
 				A499B1121F15322800E244B2 /* LoginViewController.swift */,
