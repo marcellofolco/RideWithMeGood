@@ -67,12 +67,12 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         ref = Database.database().reference()
         userStorage = storage.child("users")
-        
+    }
     
     func doneClicked() {
         view.endEditing(true)
     }
-}
+
 
     
     @IBAction func changeProfilePicPressed(_ sender: Any) {
