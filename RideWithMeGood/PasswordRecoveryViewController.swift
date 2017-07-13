@@ -22,31 +22,27 @@ class PasswordRecoveryViewController: UIViewController, UITextFieldDelegate {
         
         gifView.loadGif(name: "courier")
         
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
-        
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(self.doneClicked))
-        
-        toolBar.setItems([flexibleSpace, doneButton], animated: false)
-        
-        emailTF.inputAccessoryView = toolBar
-
         
         self.emailTF.delegate = self
         
     }
-    
-    func doneClicked() {
-        view.endEditing(true)
-        
+    // Hide Keyboard by return Button
+    func textFieldShouldReturn(_ userNameTF: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
+    
+    // Hide Keyboard Gesture
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
     }
+    
     @IBAction func recoverButtonPressed(_ sender: Any) {
         
         let userEmail = emailTF.text
@@ -77,26 +73,6 @@ class PasswordRecoveryViewController: UIViewController, UITextFieldDelegate {
     @IBAction func cancelButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    //Hide TouchGesture Keyboard
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
-    // Press return key
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
 }

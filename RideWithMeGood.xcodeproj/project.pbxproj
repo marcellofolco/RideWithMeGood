@@ -92,12 +92,12 @@
 				A4DD41691F17DBF800316C2E /* RideWithMeGood.entitlements */,
 				A499B12A1F1536CB00E244B2 /* GoogleService-Info.plist */,
 				A499B1101F15322800E244B2 /* AppDelegate.swift */,
+				A499B1261F15361400E244B2 /* courier.gif */,
 				A499B12D1F1561A900E244B2 /* SignUpViewController.swift */,
 				A499B1311F16885400E244B2 /* PasswordRecoveryViewController.swift */,
 				A499B1121F15322800E244B2 /* LoginViewController.swift */,
 				A499B1141F15322800E244B2 /* Main.storyboard */,
 				A499B1171F15322800E244B2 /* Assets.xcassets */,
-				A499B1261F15361400E244B2 /* courier.gif */,
 				A499B1271F15361400E244B2 /* SwiftGif.swift */,
 				A499B1191F15322800E244B2 /* LaunchScreen.storyboard */,
 				A499B11C1F15322800E244B2 /* Info.plist */,
@@ -140,7 +140,7 @@
 				TargetAttributes = {
 					A499B10C1F15322800E244B2 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = MV7HZ99EDM;
+						DevelopmentTeam = ASTTPZ9JXF;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -364,7 +364,7 @@
 			baseConfigurationReference = DB070A4084E4E8A49C60A78B /* Pods-RideWithMeGood.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MV7HZ99EDM;
+				DEVELOPMENT_TEAM = ASTTPZ9JXF;
 				INFOPLIST_FILE = RideWithMeGood/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marcellofolco.RideWithMeGood;
@@ -378,7 +378,7 @@
 			baseConfigurationReference = 86861FC56054FD6CAF855B82 /* Pods-RideWithMeGood.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MV7HZ99EDM;
+				DEVELOPMENT_TEAM = ASTTPZ9JXF;
 				INFOPLIST_FILE = RideWithMeGood/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marcellofolco.RideWithMeGood;

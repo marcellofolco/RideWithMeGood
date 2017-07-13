@@ -16,6 +16,7 @@ target 'RideWithMeGood' do
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
   pod 'GoogleSignIn'
+  pod 'Mapbox-iOS-SDK', '~> 3.6'
 
 
 end

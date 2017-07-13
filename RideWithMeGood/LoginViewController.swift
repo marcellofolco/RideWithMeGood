@@ -45,11 +45,11 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             
         } else if passwordTF.text! == "" {
             displayMyAlertMessage(userMessage: "Please enter a valid password")
-        
+            
         } else if emailTF.text! == "" {
             displayMyAlertMessage(userMessage: "Please enter a valid email address")
         }
-
+        
         
         guard emailTF.text != "", passwordTF.text != "" else {return }
         
@@ -59,8 +59,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
                 self.displayMyAlertMessage(userMessage: "Invalid Login")
             }
             
-            if let user = user {
-                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mapVC")
+            if user != nil {
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfile")
                 
                 self.present(vc, animated: true, completion: nil)
             }
