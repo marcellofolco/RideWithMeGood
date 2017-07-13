@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-class LoginViewController: UIViewController, GIDSignInUIDelegate {
+class LoginViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var gifView: UIImageView!
     @IBOutlet weak var emailTF: UITextField!
