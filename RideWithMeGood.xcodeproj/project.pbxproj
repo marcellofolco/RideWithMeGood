@@ -7,18 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		940BC5671F16B4850098BD07 /* squad.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 940BC5661F16B4850098BD07 /* squad.jpg */; };
-		940BC56A1F16B4C10098BD07 /* meetup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 940BC5691F16B4C10098BD07 /* meetup.jpg */; };
-		940BC56C1F16B4FC0098BD07 /* 2boys.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 940BC56B1F16B4FC0098BD07 /* 2boys.jpg */; };
-		940BC56E1F16B5210098BD07 /* raph.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 940BC56D1F16B5210098BD07 /* raph.jpg */; };
-		940BC5701F16B53D0098BD07 /* handlebars.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 940BC56F1F16B53D0098BD07 /* handlebars.jpg */; };
-		940BC5721F16B5780098BD07 /* kidlead.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 940BC5711F16B5780098BD07 /* kidlead.jpg */; };
 		A499B1111F15322800E244B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499B1101F15322800E244B2 /* AppDelegate.swift */; };
 		A499B1131F15322800E244B2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499B1121F15322800E244B2 /* LoginViewController.swift */; };
 		A499B1161F15322800E244B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A499B1141F15322800E244B2 /* Main.storyboard */; };
 		A499B1181F15322800E244B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A499B1171F15322800E244B2 /* Assets.xcassets */; };
 		A499B11B1F15322800E244B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A499B1191F15322800E244B2 /* LaunchScreen.storyboard */; };
-		A499B1281F15361400E244B2 /* courier.gif in Resources */ = {isa = PBXBuildFile; fileRef = A499B1261F15361400E244B2 /* courier.gif */; };
 		A499B1291F15361400E244B2 /* SwiftGif.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499B1271F15361400E244B2 /* SwiftGif.swift */; };
 		A499B12B1F1536CB00E244B2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A499B12A1F1536CB00E244B2 /* GoogleService-Info.plist */; };
 		A499B12E1F1561A900E244B2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499B12D1F1561A900E244B2 /* SignUpViewController.swift */; };
@@ -29,12 +22,6 @@
 /* Begin PBXFileReference section */
 		395E2454D142E293905ABCB8 /* Pods_RideWithMeGood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RideWithMeGood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86861FC56054FD6CAF855B82 /* Pods-RideWithMeGood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideWithMeGood.release.xcconfig"; path = "Pods/Target Support Files/Pods-RideWithMeGood/Pods-RideWithMeGood.release.xcconfig"; sourceTree = "<group>"; };
-		940BC5661F16B4850098BD07 /* squad.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = squad.jpg; path = "/Users/user/Dropbox/GitHub+/RideWithMeGood/RideWithMeGood/../../../../Downloads/squad.jpg"; sourceTree = "<absolute>"; };
-		940BC5691F16B4C10098BD07 /* meetup.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = meetup.jpg; path = "/Users/user/Dropbox/GitHub+/RideWithMeGood/RideWithMeGood/../../../../Downloads/meetup.jpg"; sourceTree = "<absolute>"; };
-		940BC56B1F16B4FC0098BD07 /* 2boys.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2boys.jpg; path = "/Users/user/Dropbox/GitHub+/RideWithMeGood/RideWithMeGood/../../../../Downloads/2boys.jpg"; sourceTree = "<absolute>"; };
-		940BC56D1F16B5210098BD07 /* raph.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = raph.jpg; path = "/Users/user/Dropbox/GitHub+/RideWithMeGood/RideWithMeGood/../../../../Downloads/raph.jpg"; sourceTree = "<absolute>"; };
-		940BC56F1F16B53D0098BD07 /* handlebars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = handlebars.jpg; path = "/Users/user/Dropbox/GitHub+/RideWithMeGood/RideWithMeGood/../../../../Downloads/handlebars.jpg"; sourceTree = "<absolute>"; };
-		940BC5711F16B5780098BD07 /* kidlead.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = kidlead.jpg; path = "/Users/user/Dropbox/GitHub+/RideWithMeGood/RideWithMeGood/../../../../Downloads/kidlead.jpg"; sourceTree = "<absolute>"; };
 		A499B10D1F15322800E244B2 /* RideWithMeGood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideWithMeGood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A499B1101F15322800E244B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A499B1121F15322800E244B2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -42,7 +29,6 @@
 		A499B1171F15322800E244B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A499B11A1F15322800E244B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A499B11C1F15322800E244B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A499B1261F15361400E244B2 /* courier.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = courier.gif; sourceTree = "<group>"; };
 		A499B1271F15361400E244B2 /* SwiftGif.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftGif.swift; sourceTree = "<group>"; };
 		A499B12A1F1536CB00E244B2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A499B12D1F1561A900E244B2 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -69,20 +55,6 @@
 				86861FC56054FD6CAF855B82 /* Pods-RideWithMeGood.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		940BC5681F16B4AB0098BD07 /* media */ = {
-			isa = PBXGroup;
-			children = (
-				940BC5711F16B5780098BD07 /* kidlead.jpg */,
-				940BC56F1F16B53D0098BD07 /* handlebars.jpg */,
-				940BC56D1F16B5210098BD07 /* raph.jpg */,
-				940BC56B1F16B4FC0098BD07 /* 2boys.jpg */,
-				940BC5691F16B4C10098BD07 /* meetup.jpg */,
-				A499B1261F15361400E244B2 /* courier.gif */,
-				940BC5661F16B4850098BD07 /* squad.jpg */,
-			);
-			name = media;
 			sourceTree = "<group>";
 		};
 		9695218A160EBBA1AF9C9056 /* Frameworks */ = {
@@ -114,7 +86,6 @@
 		A499B10F1F15322800E244B2 /* RideWithMeGood */ = {
 			isa = PBXGroup;
 			children = (
-				940BC5681F16B4AB0098BD07 /* media */,
 				A499B12A1F1536CB00E244B2 /* GoogleService-Info.plist */,
 				A499B1101F15322800E244B2 /* AppDelegate.swift */,
 				A499B12D1F1561A900E244B2 /* SignUpViewController.swift */,
@@ -192,15 +163,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				940BC5701F16B53D0098BD07 /* handlebars.jpg in Resources */,
-				A499B1281F15361400E244B2 /* courier.gif in Resources */,
-				940BC56A1F16B4C10098BD07 /* meetup.jpg in Resources */,
-				940BC56E1F16B5210098BD07 /* raph.jpg in Resources */,
-				940BC56C1F16B4FC0098BD07 /* 2boys.jpg in Resources */,
 				A499B11B1F15322800E244B2 /* LaunchScreen.storyboard in Resources */,
 				A499B12B1F1536CB00E244B2 /* GoogleService-Info.plist in Resources */,
-				940BC5721F16B5780098BD07 /* kidlead.jpg in Resources */,
-				940BC5671F16B4850098BD07 /* squad.jpg in Resources */,
 				A499B1181F15322800E244B2 /* Assets.xcassets in Resources */,
 				A499B1161F15322800E244B2 /* Main.storyboard in Resources */,
 			);
