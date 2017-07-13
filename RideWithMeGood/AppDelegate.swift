@@ -11,6 +11,8 @@ import Firebase
 import GoogleSignIn
 
 import FBSDKCoreKit
+import Mapbox
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
