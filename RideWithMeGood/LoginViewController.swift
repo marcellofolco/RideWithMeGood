@@ -65,7 +65,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
                 self.displayMyAlertMessage(userMessage: "Invalid Login")
             }
             
-            if let user = user {
+            if user != nil {
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfile")
                 
                 self.present(vc, animated: true, completion: nil)
