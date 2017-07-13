@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6O7-dv-TBC">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6O7-dv-TBC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="kSK-Gr-SGx">
             <objects>
-                <viewController id="6O7-dv-TBC" customClass="ViewController" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6O7-dv-TBC" customClass="viewController" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XUA-sP-ekA"/>
                         <viewControllerLayoutGuide type="bottom" id="H8a-tW-W9Y"/>
@@ -139,38 +139,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Password" destination="tr3-iM-0Ya" id="qM8-F7-90q"/>
-                        <outlet property="Username" destination="2nr-v0-82o" id="PDL-JL-xZm"/>
-                        <outlet property="btnLogin" destination="yJT-SA-ZoP" id="4ja-U4-wr8"/>
-                        <outlet property="gifView" destination="olq-9j-FxI" id="4ea-64-OKh"/>
+                        <outlet property="btnLogin" destination="yJT-SA-ZoP" id="uM8-HQ-h31"/>
+                        <outlet property="gifView" destination="olq-9j-FxI" id="Vrh-ds-1Yh"/>
+                        <outlet property="passwordTF" destination="tr3-iM-0Ya" id="t6p-37-zBJ"/>
+                        <outlet property="userNameTF" destination="2nr-v0-82o" id="CbZ-tJ-oxu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tzf-Av-pKt" sceneMemberID="firstResponder"/>
             </objects>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="V6j-8N-4Oc">
-            <objects>
-                <viewController storyboardIdentifier="mapVC" id="qhz-gZ-woP" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="P0w-iV-UqF"/>
-                        <viewControllerLayoutGuide type="bottom" id="Hpk-8r-jxR"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="AaE-ky-wyo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="whY-cG-5Fw">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OeZ-4q-Kko" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1007.2" y="50.824587706146929"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="kcR-AK-shy">

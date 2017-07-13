@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A499B1111F15322800E244B2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499B1101F15322800E244B2 /* AppDelegate.swift */; };
-		A499B1131F15322800E244B2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499B1121F15322800E244B2 /* LoginViewController.swift */; };
+		A499B1131F15322800E244B2 /* viewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499B1121F15322800E244B2 /* viewController.swift */; };
 		A499B1161F15322800E244B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A499B1141F15322800E244B2 /* Main.storyboard */; };
 		A499B1181F15322800E244B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A499B1171F15322800E244B2 /* Assets.xcassets */; };
 		A499B11B1F15322800E244B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A499B1191F15322800E244B2 /* LaunchScreen.storyboard */; };
@@ -25,7 +25,7 @@
 		86861FC56054FD6CAF855B82 /* Pods-RideWithMeGood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideWithMeGood.release.xcconfig"; path = "Pods/Target Support Files/Pods-RideWithMeGood/Pods-RideWithMeGood.release.xcconfig"; sourceTree = "<group>"; };
 		A499B10D1F15322800E244B2 /* RideWithMeGood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideWithMeGood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A499B1101F15322800E244B2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A499B1121F15322800E244B2 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		A499B1121F15322800E244B2 /* viewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewController.swift; sourceTree = "<group>"; };
 		A499B1151F15322800E244B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A499B1171F15322800E244B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A499B11A1F15322800E244B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -93,8 +93,8 @@
 				A499B1141F15322800E244B2 /* Main.storyboard */,
 				A499B1191F15322800E244B2 /* LaunchScreen.storyboard */,
 				A499B1171F15322800E244B2 /* Assets.xcassets */,
+				A499B1121F15322800E244B2 /* viewController.swift */,
 				A499B12D1F1561A900E244B2 /* SignUpViewController.swift */,
-				A499B1121F15322800E244B2 /* LoginViewController.swift */,
 				A499B1311F16885400E244B2 /* PasswordRecoveryViewController.swift */,
 				A499B1261F15361400E244B2 /* courier.gif */,
 				A499B1271F15361400E244B2 /* SwiftGif.swift */,
@@ -230,7 +230,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A499B1291F15361400E244B2 /* SwiftGif.swift in Sources */,
-				A499B1131F15322800E244B2 /* LoginViewController.swift in Sources */,
+				A499B1131F15322800E244B2 /* viewController.swift in Sources */,
 				A499B12E1F1561A900E244B2 /* SignUpViewController.swift in Sources */,
 				A499B1321F16885400E244B2 /* PasswordRecoveryViewController.swift in Sources */,
 				A499B1111F15322800E244B2 /* AppDelegate.swift in Sources */,

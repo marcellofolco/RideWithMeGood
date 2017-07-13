@@ -22,27 +22,12 @@ class PasswordRecoveryViewController: UIViewController, UITextFieldDelegate {
         
         gifView.loadGif(name: "courier")
         
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
         
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(self.doneClicked))
-        
-        toolBar.setItems([flexibleSpace, doneButton], animated: false)
-        
-        emailTF.inputAccessoryView = toolBar
-
         
         self.emailTF.delegate = self
         
     }
     
-    func doneClicked() {
-        view.endEditing(true)
-        
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
@@ -78,7 +63,7 @@ class PasswordRecoveryViewController: UIViewController, UITextFieldDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
-    //Hide TouchGesture Keyboard
+    /// Hide Keyboard Gesture
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }

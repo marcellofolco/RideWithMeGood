@@ -28,32 +28,12 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
-        
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(self.doneClicked))
-        
-        toolBar.setItems([flexibleSpace, doneButton], animated: false)
-        
-        firstNameTF.inputAccessoryView = toolBar
-        lastNameTF.inputAccessoryView = toolBar
-        emailTF.inputAccessoryView = toolBar
-        passwordTF.inputAccessoryView = toolBar
-        confirmPasswordTF.inputAccessoryView = toolBar
-        
-        //Hide TouchGesture Keyboard
-        func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            self.view.endEditing(true)
-        }
-        
-        // Press return key
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            textField.resignFirstResponder()
-            return true
-        }
-    
+        self.firstNameTF.delegate = self
+        self.lastNameTF.delegate = self
+        self.emailTF.delegate = self
+        self.passwordTF.delegate = self
+        self.confirmPasswordTF.delegate = self
+
         self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
         self.imageView.clipsToBounds = true;
         self.imageView.layer.borderWidth = 5.5;
@@ -67,10 +47,18 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         ref = Database.database().reference()
         userStorage = storage.child("users")
+
     }
     
-    func doneClicked() {
-        view.endEditing(true)
+    // Press return key
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Hide Keyboard Gesture
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
     @IBAction func changeProfilePicPressed(_ sender: Any) {
