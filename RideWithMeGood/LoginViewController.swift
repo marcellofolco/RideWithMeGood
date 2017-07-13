@@ -50,7 +50,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
             }
             
             if let user = user {
-                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mapVC")
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfile")
                 
                 self.present(vc, animated: true, completion: nil)
             }
