@@ -37,11 +37,17 @@ class PasswordRecoveryViewController: UIViewController, UITextFieldDelegate {
         self.emailTF.delegate = self
         
     }
-    
-    func doneClicked() {
-        view.endEditing(true)
-        
+    // Hide Keyboard by return Button
+    func textFieldShouldReturn(_ userNameTF: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
+    
+    // Hide Keyboard Gesture
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
