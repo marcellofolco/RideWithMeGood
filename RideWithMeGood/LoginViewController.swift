@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-class LoginViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDelegate {
+class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     @IBOutlet weak var gifView: UIImageView!
     @IBOutlet weak var emailTF: UITextField!
@@ -19,25 +19,19 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDel
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         gifView.loadGif(name: "courier")
         
-        self.emailTF.delegate = self
-        self.passwordTF.delegate = self
+        let googleButton = GIDSignInButton()
+        googleButton.frame = CGRect(x: 65, y: 523, width: 130, height: 30)
+        googleButton.layer.cornerRadius = 18
+        view.addSubview(googleButton)
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
         
         
     }
-    // Hide Keyboard by return Button
-    func textFieldShouldReturn(_ userNameTF: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
-    
-    // Hide Keyboard Gesture
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -51,11 +45,11 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDel
             
         } else if passwordTF.text! == "" {
             displayMyAlertMessage(userMessage: "Please enter a valid password")
-        
+            
         } else if emailTF.text! == "" {
             displayMyAlertMessage(userMessage: "Please enter a valid email address")
         }
-
+        
         
         guard emailTF.text != "", passwordTF.text != "" else {return }
         
@@ -87,7 +81,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDel
         self.present(myAlert, animated: true, completion: nil);
         
     }
-
+    
     
 }
 
