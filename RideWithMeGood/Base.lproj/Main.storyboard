@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6O7-dv-TBC">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6O7-dv-TBC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="kSK-Gr-SGx">
             <objects>
-                <viewController id="6O7-dv-TBC" customClass="ViewController" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6O7-dv-TBC" customClass="LoginViewController" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XUA-sP-ekA"/>
                         <viewControllerLayoutGuide type="bottom" id="H8a-tW-W9Y"/>
@@ -41,7 +41,7 @@
                                                     <constraint firstAttribute="width" secondItem="28m-Lh-qHy" secondAttribute="height" multiplier="273:160" id="T6m-Ku-gJg"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2nr-v0-82o">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2nr-v0-82o">
                                                 <rect key="frame" x="68" y="409" width="239" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="0.49582435339999997" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -56,7 +56,7 @@
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJT-SA-ZoP">
                                                 <rect key="frame" x="41" y="485" width="293" height="30"/>
@@ -64,6 +64,9 @@
                                                     <constraint firstAttribute="width" secondItem="yJT-SA-ZoP" secondAttribute="height" multiplier="293:30" id="W3h-gW-FRS"/>
                                                 </constraints>
                                                 <state key="normal" image="Login"/>
+                                                <connections>
+                                                    <action selector="btnLogin:" destination="6O7-dv-TBC" eventType="touchUpInside" id="7p0-IE-8y0"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9DW-To-IwS">
                                                 <rect key="frame" x="68" y="600" width="58" height="32"/>
@@ -140,10 +143,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="Password" destination="tr3-iM-0Ya" id="qM8-F7-90q"/>
-                        <outlet property="Username" destination="2nr-v0-82o" id="PDL-JL-xZm"/>
                         <outlet property="btnLogin" destination="yJT-SA-ZoP" id="4ja-U4-wr8"/>
+                        <outlet property="emailTF" destination="2nr-v0-82o" id="1bt-qX-zeR"/>
                         <outlet property="gifView" destination="olq-9j-FxI" id="4ea-64-OKh"/>
+                        <outlet property="passwordTF" destination="tr3-iM-0Ya" id="2gP-0F-qk9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tzf-Av-pKt" sceneMemberID="firstResponder"/>
@@ -361,22 +364,20 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bph-ev-3PQ">
-                                                <rect key="frame" x="68" y="267" width="240" height="38"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bph-ev-3PQ">
+                                                <rect key="frame" x="36" y="271" width="305" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Recover">
+                                                <state key="normal" image="Recover Button">
                                                     <color key="titleColor" red="0.98293346479999999" green="1" blue="0.99536528440000005" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="recoverButtonPressed:" destination="HfR-c2-EYn" eventType="touchUpInside" id="ijk-hy-xgK"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hn-MO-YcN">
-                                                <rect key="frame" x="67" y="314" width="240" height="38"/>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2hn-MO-YcN">
+                                                <rect key="frame" x="68" y="318" width="239" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" title="Cancel">
+                                                <state key="normal" image="Cancel Button">
                                                     <color key="titleColor" red="0.98293346479999999" green="1" blue="0.99536528440000005" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
@@ -502,9 +503,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Cancel Button" width="239" height="30"/>
         <image name="Login" width="239" height="30"/>
         <image name="Profile Pic" width="218" height="218"/>
         <image name="Profile Pic@1x" width="218" height="218"/>
+        <image name="Recover Button" width="239" height="30"/>
         <image name="courier.gif" width="800" height="600"/>
         <image name="meetup.jpg" width="2160" height="1440"/>
         <image name="mtlzenlogo" width="960" height="560"/>
