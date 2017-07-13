@@ -19,8 +19,18 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         gifView.loadGif(name: "courier")
+        
+        let googleButton = GIDSignInButton()
+        googleButton.frame = CGRect(x: 65, y: 523, width: 130, height: 30)
+        googleButton.layer.cornerRadius = 18
+        view.addSubview(googleButton)
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,7 +81,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         self.present(myAlert, animated: true, completion: nil);
         
     }
-
+    
     
 }
 
