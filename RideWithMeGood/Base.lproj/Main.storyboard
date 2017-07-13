@@ -150,6 +150,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tzf-Av-pKt" sceneMemberID="firstResponder"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IIO-6z-iEV">
+                    <rect key="frame" x="0.0" y="0.0" width="115" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Find ride nearby "/>
+                </button>
             </objects>
         </scene>
         <!--Sign Up View Controller-->
@@ -413,6 +418,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meetup.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="mFh-10-Hid">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Jy-03-wfd">
                                 <rect key="frame" x="16" y="38.5" width="86" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -435,15 +443,11 @@
                                 <rect key="frame" x="54" y="283" width="236" height="30"/>
                                 <state key="normal" title="Find Local bike shop"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIO-6z-iEV">
-                                <rect key="frame" x="115" y="331" width="115" height="30"/>
-                                <state key="normal" title="Find ride nearby "/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sq-7M-rTR">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sq-7M-rTR">
                                 <rect key="frame" x="90" y="369" width="164" height="30"/>
                                 <state key="normal" title="Find events nearby"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APa-0l-wMm">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APa-0l-wMm">
                                 <rect key="frame" x="134" y="419" width="107" height="30"/>
                                 <state key="normal" title="Schedule a ride"/>
                             </button>
@@ -461,20 +465,21 @@
                             <constraint firstItem="XqX-Lr-APT" firstAttribute="top" secondItem="7t9-0w-lhL" secondAttribute="top" constant="124" id="A5d-8V-irY"/>
                             <constraint firstItem="APa-0l-wMm" firstAttribute="top" secondItem="1Sq-7M-rTR" secondAttribute="bottom" constant="20" id="BX1-7K-Yo2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XqX-Lr-APT" secondAttribute="trailing" constant="-9" id="LMH-8w-8Bl"/>
-                            <constraint firstItem="reO-gZ-scj" firstAttribute="centerX" secondItem="IIO-6z-iEV" secondAttribute="centerX" id="OMj-Se-1PW"/>
+                            <constraint firstItem="mFh-10-Hid" firstAttribute="leading" secondItem="7t9-0w-lhL" secondAttribute="leading" id="OWT-Wo-K2h"/>
                             <constraint firstItem="reO-gZ-scj" firstAttribute="centerX" secondItem="1Sq-7M-rTR" secondAttribute="centerX" id="PsT-z9-9TY"/>
+                            <constraint firstItem="mFh-10-Hid" firstAttribute="top" secondItem="7t9-0w-lhL" secondAttribute="top" id="Sq7-Yt-Rde"/>
                             <constraint firstItem="reO-gZ-scj" firstAttribute="leading" secondItem="7t9-0w-lhL" secondAttribute="leadingMargin" constant="38" id="TLZ-fM-u2Q"/>
                             <constraint firstItem="XqX-Lr-APT" firstAttribute="leading" secondItem="Qx2-WB-EBI" secondAttribute="trailing" constant="33" id="VZK-qf-7TU"/>
                             <constraint firstItem="XqX-Lr-APT" firstAttribute="top" secondItem="aQ5-p9-msR" secondAttribute="bottom" constant="36" id="Wtu-De-uyE"/>
                             <constraint firstItem="Qx2-WB-EBI" firstAttribute="top" secondItem="aQ5-p9-msR" secondAttribute="bottom" constant="19" id="Yoc-v8-mWa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="reO-gZ-scj" secondAttribute="trailing" constant="69" id="Yte-Uu-wdb"/>
+                            <constraint firstItem="mFh-10-Hid" firstAttribute="bottom" secondItem="tvU-ZW-Mgr" secondAttribute="top" id="b0Y-eL-Qnw"/>
                             <constraint firstItem="aQ5-p9-msR" firstAttribute="leading" secondItem="7Jy-03-wfd" secondAttribute="leading" constant="112" id="e4w-5T-pGa"/>
                             <constraint firstItem="1Sq-7M-rTR" firstAttribute="leading" secondItem="7t9-0w-lhL" secondAttribute="leadingMargin" constant="74" id="j5L-Eo-khh"/>
                             <constraint firstItem="aQ5-p9-msR" firstAttribute="leading" secondItem="Qx2-WB-EBI" secondAttribute="leading" id="jlm-uv-o9k"/>
-                            <constraint firstItem="IIO-6z-iEV" firstAttribute="top" secondItem="reO-gZ-scj" secondAttribute="bottom" constant="18" id="kjD-Kj-3Ja"/>
-                            <constraint firstItem="1Sq-7M-rTR" firstAttribute="top" secondItem="IIO-6z-iEV" secondAttribute="bottom" constant="8" symbolic="YES" id="krC-Hf-9tL"/>
                             <constraint firstItem="APa-0l-wMm" firstAttribute="centerX" secondItem="7t9-0w-lhL" secondAttribute="centerX" id="lxJ-4H-ptq"/>
                             <constraint firstItem="aQ5-p9-msR" firstAttribute="top" secondItem="7Jy-03-wfd" secondAttribute="bottom" constant="8" symbolic="YES" id="rTd-D3-7u9"/>
+                            <constraint firstItem="APa-0l-wMm" firstAttribute="centerX" secondItem="mFh-10-Hid" secondAttribute="centerX" id="rj5-62-QDy"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -537,10 +542,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="meetup.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="mFh-10-Hid">
-                                        <rect key="frame" x="-182" y="719" width="375" height="667"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
