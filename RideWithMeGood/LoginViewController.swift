@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-class LoginViewController: UIViewController, GIDSignInUIDelegate {
+class LoginViewController: UIViewController, GIDSignInUIDelegate{
     
     @IBOutlet weak var gifView: UIImageView!
     @IBOutlet weak var emailTF: UITextField!
@@ -29,13 +29,20 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         view.addSubview(googleButton)
         
         GIDSignIn.sharedInstance().uiDelegate = self
-        
+        GIDSignIn.sharedInstance().signInSilently()
         
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
+    }
+    
+    func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
+        
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfile")
+        
+        self.present(vc, animated: true, completion: nil)
     }
     
     @IBAction func btnLogin(_ sender: Any) {
