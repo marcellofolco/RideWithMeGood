@@ -18,6 +18,7 @@
 		A499B12E1F1561A900E244B2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499B12D1F1561A900E244B2 /* SignUpViewController.swift */; };
 		A499B1321F16885400E244B2 /* PasswordRecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499B1311F16885400E244B2 /* PasswordRecoveryViewController.swift */; };
 		A4DD416D1F1D088E00316C2E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DD416C1F1D088E00316C2E /* MapViewController.swift */; };
+		A4DD41711F1D2C6600316C2E /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DD41701F1D2C6600316C2E /* Pin.swift */; };
 		E9CC4DF2B0EB58201F8312D1 /* Pods_RideWithMeGood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 395E2454D142E293905ABCB8 /* Pods_RideWithMeGood.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,7 @@
 		A499B1311F16885400E244B2 /* PasswordRecoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryViewController.swift; sourceTree = "<group>"; };
 		A4DD41691F17DBF800316C2E /* RideWithMeGood.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RideWithMeGood.entitlements; sourceTree = "<group>"; };
 		A4DD416C1F1D088E00316C2E /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		A4DD41701F1D2C6600316C2E /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		DB070A4084E4E8A49C60A78B /* Pods-RideWithMeGood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideWithMeGood.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RideWithMeGood/Pods-RideWithMeGood.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 				A499B1121F15322800E244B2 /* LoginViewController.swift */,
 				A499B1141F15322800E244B2 /* Main.storyboard */,
 				A4DD416C1F1D088E00316C2E /* MapViewController.swift */,
+				A4DD41701F1D2C6600316C2E /* Pin.swift */,
 				A499B1171F15322800E244B2 /* Assets.xcassets */,
 				A499B1271F15361400E244B2 /* SwiftGif.swift */,
 				A499B1191F15322800E244B2 /* LaunchScreen.storyboard */,
@@ -239,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4DD41711F1D2C6600316C2E /* Pin.swift in Sources */,
 				A499B1291F15361400E244B2 /* SwiftGif.swift in Sources */,
 				A4DD416D1F1D088E00316C2E /* MapViewController.swift in Sources */,
 				A499B1131F15322800E244B2 /* LoginViewController.swift in Sources */,

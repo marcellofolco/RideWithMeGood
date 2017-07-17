@@ -191,9 +191,9 @@
                                     <outlet property="delegate" destination="tsU-bu-adb" id="0P3-cB-2K1"/>
                                 </connections>
                             </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PGu-N0-6gn">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hPn-wT-OCL">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                            </imageView>
+                            </mapView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LDt-8a-lSW">
                                 <rect key="frame" x="0.0" y="357" width="375" height="261"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -202,20 +202,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="PGu-N0-6gn" secondAttribute="trailing" id="AEU-sT-pxL"/>
-                            <constraint firstItem="PGu-N0-6gn" firstAttribute="leading" secondItem="1Ca-P2-i4t" secondAttribute="leading" id="SKW-39-ctG"/>
-                            <constraint firstItem="PGu-N0-6gn" firstAttribute="leading" secondItem="1Ca-P2-i4t" secondAttribute="leading" id="WBE-ZE-mc4"/>
+                            <constraint firstItem="FrN-W6-2zY" firstAttribute="top" secondItem="hPn-wT-OCL" secondAttribute="bottom" id="H7D-gU-NGO"/>
+                            <constraint firstItem="hPn-wT-OCL" firstAttribute="leading" secondItem="1Ca-P2-i4t" secondAttribute="leading" id="KnP-Dz-k0n"/>
+                            <constraint firstItem="hPn-wT-OCL" firstAttribute="top" secondItem="q3D-nt-RWp" secondAttribute="bottom" id="KrZ-nD-M7H"/>
                             <constraint firstItem="q3D-nt-RWp" firstAttribute="top" secondItem="QeC-bJ-NBC" secondAttribute="bottom" id="aRA-Ss-RwL"/>
-                            <constraint firstItem="PGu-N0-6gn" firstAttribute="top" secondItem="q3D-nt-RWp" secondAttribute="bottom" id="bjs-vE-cFL"/>
-                            <constraint firstItem="FrN-W6-2zY" firstAttribute="top" secondItem="PGu-N0-6gn" secondAttribute="bottom" id="cz0-1u-6EQ"/>
-                            <constraint firstAttribute="trailing" secondItem="PGu-N0-6gn" secondAttribute="trailing" id="d4s-p3-huX"/>
                             <constraint firstItem="q3D-nt-RWp" firstAttribute="leading" secondItem="1Ca-P2-i4t" secondAttribute="leading" id="jDQ-fS-Td8"/>
                             <constraint firstAttribute="trailing" secondItem="q3D-nt-RWp" secondAttribute="trailing" id="pPr-pg-gdR"/>
-                            <constraint firstItem="PGu-N0-6gn" firstAttribute="top" secondItem="q3D-nt-RWp" secondAttribute="bottom" id="r59-uu-D69"/>
+                            <constraint firstAttribute="trailing" secondItem="hPn-wT-OCL" secondAttribute="trailing" id="u23-fk-rp1"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="KkR-Vc-aI4"/>
                     <connections>
+                        <outlet property="map" destination="hPn-wT-OCL" id="afZ-iQ-hFC"/>
                         <outlet property="navBar" destination="q3D-nt-RWp" id="u0j-Ki-VAB"/>
                     </connections>
                 </viewController>
@@ -553,6 +551,7 @@
                 <tabBarController storyboardIdentifier="TabBarVC" automaticallyAdjustsScrollViewInsets="NO" id="XDv-s9-YTC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="dLL-Pw-5xV">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
