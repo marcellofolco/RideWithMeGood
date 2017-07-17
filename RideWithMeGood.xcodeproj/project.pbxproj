@@ -17,8 +17,6 @@
 		A499B12B1F1536CB00E244B2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A499B12A1F1536CB00E244B2 /* GoogleService-Info.plist */; };
 		A499B12E1F1561A900E244B2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499B12D1F1561A900E244B2 /* SignUpViewController.swift */; };
 		A499B1321F16885400E244B2 /* PasswordRecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A499B1311F16885400E244B2 /* PasswordRecoveryViewController.swift */; };
-		B748FE991F1AF1A2008F494E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B748FE981F1AF1A2008F494E /* MapViewController.swift */; };
-		B7F812701F1B2D1000261CC2 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8126F1F1B2D1000261CC2 /* Pin.swift */; };
 		E9CC4DF2B0EB58201F8312D1 /* Pods_RideWithMeGood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 395E2454D142E293905ABCB8 /* Pods_RideWithMeGood.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,8 +36,6 @@
 		A499B12D1F1561A900E244B2 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		A499B1311F16885400E244B2 /* PasswordRecoveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryViewController.swift; sourceTree = "<group>"; };
 		A4DD41691F17DBF800316C2E /* RideWithMeGood.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RideWithMeGood.entitlements; sourceTree = "<group>"; };
-		B748FE981F1AF1A2008F494E /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		B7F8126F1F1B2D1000261CC2 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		DB070A4084E4E8A49C60A78B /* Pods-RideWithMeGood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideWithMeGood.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RideWithMeGood/Pods-RideWithMeGood.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,11 +96,9 @@
 				A499B12D1F1561A900E244B2 /* SignUpViewController.swift */,
 				A499B1311F16885400E244B2 /* PasswordRecoveryViewController.swift */,
 				A499B1121F15322800E244B2 /* LoginViewController.swift */,
-				B748FE981F1AF1A2008F494E /* MapViewController.swift */,
 				A499B1141F15322800E244B2 /* Main.storyboard */,
 				A499B1171F15322800E244B2 /* Assets.xcassets */,
 				A499B1271F15361400E244B2 /* SwiftGif.swift */,
-				B7F8126F1F1B2D1000261CC2 /* Pin.swift */,
 				A499B1191F15322800E244B2 /* LaunchScreen.storyboard */,
 				A499B11C1F15322800E244B2 /* Info.plist */,
 			);
@@ -242,9 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7F812701F1B2D1000261CC2 /* Pin.swift in Sources */,
 				A499B1291F15361400E244B2 /* SwiftGif.swift in Sources */,
-				B748FE991F1AF1A2008F494E /* MapViewController.swift in Sources */,
 				A499B1131F15322800E244B2 /* LoginViewController.swift in Sources */,
 				A499B12E1F1561A900E244B2 /* SignUpViewController.swift in Sources */,
 				A499B1321F16885400E244B2 /* PasswordRecoveryViewController.swift in Sources */,
