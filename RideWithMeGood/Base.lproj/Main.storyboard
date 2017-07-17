@@ -185,6 +185,13 @@
                                                 <state key="normal" title="Nearby"/>
                                             </button>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="MyRidesBarItem" style="plain" id="oWf-XU-fi6">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PUy-SG-yN1">
+                                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="My Rides"/>
+                                            </button>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                                 <connections>
@@ -213,13 +220,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="KkR-Vc-aI4"/>
                     <connections>
+                        <outlet property="infoRef" destination="LDt-8a-lSW" id="Ahz-BH-H9G"/>
                         <outlet property="map" destination="hPn-wT-OCL" id="afZ-iQ-hFC"/>
                         <outlet property="navBar" destination="q3D-nt-RWp" id="u0j-Ki-VAB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y06-cx-RBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2056.8000000000002" y="63.418290854572717"/>
+            <point key="canvasLocation" x="1982" y="870"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="kcR-AK-shy">
@@ -370,7 +378,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gao-Z8-r5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-527.20000000000005" y="881.10944527736137"/>
+            <point key="canvasLocation" x="-762" y="848"/>
         </scene>
         <!--Password Recovery View Controller-->
         <scene sceneID="w4k-Cs-TWi">
@@ -468,7 +476,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Raq-to-Uaj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="882" y="881"/>
+            <point key="canvasLocation" x="110" y="848"/>
         </scene>
         <!--User Profile-->
         <scene sceneID="ofH-x9-PCc">
@@ -539,11 +547,49 @@
                             <constraint firstItem="aQ5-p9-msR" firstAttribute="top" secondItem="7Jy-03-wfd" secondAttribute="bottom" constant="8" symbolic="YES" id="rTd-D3-7u9"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="Profile Tab Icon" id="Cln-db-AGx"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Profile" image="Profile Tab Icon" id="Cln-db-AGx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QXa-I2-DO8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1780" y="881"/>
+            <point key="canvasLocation" x="998" y="848"/>
+        </scene>
+        <!--Messages-->
+        <scene sceneID="OOO-NX-mDu">
+            <objects>
+                <viewController id="Ibn-eS-3su" customClass="MessagesVC" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WNK-Oh-LPp"/>
+                        <viewControllerLayoutGuide type="bottom" id="PYh-fe-4Ji"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pcj-br-Xez">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Messages" image="messagesicon" id="fc8-la-lQd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LVf-kk-fVI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1982" y="-699"/>
+        </scene>
+        <!--Weather-->
+        <scene sceneID="EzF-ID-YNO">
+            <objects>
+                <viewController id="2YR-0G-zR6" customClass="WeatherVC" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UCe-M0-eXw"/>
+                        <viewControllerLayoutGuide type="bottom" id="HFe-iW-Xbt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cXX-9h-TWI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="1" title="Weather" image="weathericon" id="xdB-OV-dtP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mVd-kS-AnD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1982" y="59"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xer-7X-tuA">
@@ -557,12 +603,14 @@
                     </tabBar>
                     <connections>
                         <segue destination="tsU-bu-adb" kind="relationship" relationship="viewControllers" id="ChN-gE-Hhw"/>
+                        <segue destination="2YR-0G-zR6" kind="relationship" relationship="viewControllers" id="Bbq-WJ-dt1"/>
+                        <segue destination="Ibn-eS-3su" kind="relationship" relationship="viewControllers" id="3Vo-ST-Uma"/>
                         <segue destination="hvl-Cw-e3D" kind="relationship" relationship="viewControllers" id="HWJ-4I-s4S"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U8Y-ez-IDd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117.5999999999999" y="63.418290854572717"/>
+            <point key="canvasLocation" x="999" y="63"/>
         </scene>
     </scenes>
     <resources>
@@ -574,6 +622,8 @@
         <image name="Profile Tab Icon" width="25" height="25"/>
         <image name="Recover Button" width="239" height="30"/>
         <image name="courier.gif" width="800" height="600"/>
+        <image name="messagesicon" width="25" height="25"/>
         <image name="mtlzenlogo" width="960" height="560"/>
+        <image name="weathericon" width="25" height="20"/>
     </resources>
 </document>

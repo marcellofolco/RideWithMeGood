@@ -14,6 +14,8 @@ class MapViewController: UIViewController, UIBarPositioningDelegate, MKMapViewDe
     
     @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var infoRef: UIView!
+    
     var manager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -25,6 +27,8 @@ class MapViewController: UIViewController, UIBarPositioningDelegate, MKMapViewDe
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
         
+        infoRef.isHidden = true
+        
     }
     
     func position(for bar: UIBarPositioning) -> UIBarPosition{
@@ -32,8 +36,6 @@ class MapViewController: UIViewController, UIBarPositioningDelegate, MKMapViewDe
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        // userLocation - there is no need for casting, because we are now using CLLocation object
         
         let userLocation:CLLocation = locations[0]
         

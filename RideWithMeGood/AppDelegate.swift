@@ -15,7 +15,6 @@ import Mapbox
 
 import CoreLocation
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
