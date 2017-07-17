@@ -156,6 +156,7 @@
                     <state key="normal" title="Find ride nearby "/>
                 </button>
             </objects>
+            <point key="canvasLocation" x="110" y="59"/>
         </scene>
         <!--Map-->
         <scene sceneID="gcs-1A-m6e">
@@ -469,7 +470,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Raq-to-Uaj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="549.60000000000002" y="856.82158920539734"/>
+            <point key="canvasLocation" x="882" y="881"/>
         </scene>
         <!--User Profile-->
         <scene sceneID="ofH-x9-PCc">
@@ -544,7 +545,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QXa-I2-DO8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1241" y="857"/>
+            <point key="canvasLocation" x="1780" y="881"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xer-7X-tuA">
