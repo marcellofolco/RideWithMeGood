@@ -67,7 +67,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
             }
             
             if user != nil {
-                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfile")
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarVC")
                 
                 self.present(vc, animated: true, completion: nil)
             }
