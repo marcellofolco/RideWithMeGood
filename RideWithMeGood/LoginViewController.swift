@@ -17,6 +17,21 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
     
+    @IBAction func loginFacebook(_ sender: Any) {
+        
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
+        self.present(vc!, animated: true, completion: nil)
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
     
     override func viewDidLoad() {
         
@@ -38,12 +53,12 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
         
     }
     
-    func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
+    /*func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
         
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfile")
         
         self.present(vc, animated: true, completion: nil)
-    }
+    }*/
     
     @IBAction func btnLogin(_ sender: Any) {
         

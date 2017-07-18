@@ -33,8 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        locationManager.requestAlwaysAuthorization()
-        locationManager.requestWhenInUseAuthorization()
+        //locationManager.requestAlwaysAuthorization()
+        //locationManager.requestWhenInUseAuthorization()
         
         return true
         
@@ -44,7 +44,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
         -> Bool {
             
-            return GIDSignIn.sharedInstance().handle(url, sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
+            
+            let sourceApplication =  options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String
+            let annotation = options[UIApplicationOpenURLOptionsKey.annotation]
+            
+            let googleHandler = GIDSignIn.sharedInstance().handle(
+                url,
+                sourceApplication: sourceApplication,
+                annotation: annotation )
+            
+            let facebookHandler = FBSDKApplicationDelegate.sharedInstance().application (
+                application,
+                open: url,
+                sourceApplication: sourceApplication,
+                annotation: annotation )
+            
+            return googleHandler || facebookHandler
+            
+            
+            
+            
+            
+            
+            //return GIDSignIn.sharedInstance().handle(url, sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String, annotation: [:])
             
 //            let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
 //            

@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6O7-dv-TBC">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6O7-dv-TBC">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -95,6 +95,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFL-jf-SYw">
                                                 <rect key="frame" x="117" y="535" width="141" height="30"/>
                                                 <state key="normal" title="Login with Facebook"/>
+                                                <connections>
+                                                    <action selector="loginFacebook:" destination="6O7-dv-TBC" eventType="touchUpInside" id="k1g-wF-bem"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.26274509800000001" green="0.50588235290000005" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -481,7 +484,7 @@
         <!--UserVC-->
         <scene sceneID="ofH-x9-PCc">
             <objects>
-                <viewController storyboardIdentifier="UserProfile" title="UserVC" id="hvl-Cw-e3D" customClass="UserVC" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfile" title="UserVC" id="hvl-Cw-e3D" customClass="ProfileViewController" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fLS-nX-mj6"/>
                         <viewControllerLayoutGuide type="bottom" id="tvU-ZW-Mgr"/>
@@ -490,24 +493,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qx2-WB-EBI">
-                                <rect key="frame" x="128" y="107" width="79" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Full name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qx2-WB-EBI">
+                                <rect key="frame" x="128" y="107" width="74" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reO-gZ-scj">
-                                <rect key="frame" x="54" y="283" width="236" height="30"/>
-                                <state key="normal" title="Find Local bike shop"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sq-7M-rTR">
-                                <rect key="frame" x="90" y="369" width="164" height="30"/>
-                                <state key="normal" title="Find events nearby"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APa-0l-wMm">
-                                <rect key="frame" x="134" y="419" width="107" height="30"/>
-                                <state key="normal" title="Schedule a ride"/>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile Pic" translatesAutoresizingMaskIntoConstraints="NO" id="XqX-Lr-APT">
                                 <rect key="frame" x="240" y="124" width="128" height="128"/>
                                 <constraints>
@@ -515,30 +506,31 @@
                                     <constraint firstAttribute="height" constant="128" id="yzO-8F-JTi"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGq-Jt-175">
+                                <rect key="frame" x="128" y="149" width="74" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.38307487959999997" green="0.57333666090000002" blue="0.7255648375" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="reO-gZ-scj" firstAttribute="top" secondItem="XqX-Lr-APT" secondAttribute="bottom" constant="31" id="1dY-eu-OWk"/>
                             <constraint firstItem="XqX-Lr-APT" firstAttribute="top" secondItem="7t9-0w-lhL" secondAttribute="top" constant="124" id="A5d-8V-irY"/>
-                            <constraint firstItem="APa-0l-wMm" firstAttribute="top" secondItem="1Sq-7M-rTR" secondAttribute="bottom" constant="20" id="BX1-7K-Yo2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XqX-Lr-APT" secondAttribute="trailing" constant="-9" id="LMH-8w-8Bl"/>
-                            <constraint firstItem="reO-gZ-scj" firstAttribute="centerX" secondItem="1Sq-7M-rTR" secondAttribute="centerX" id="PsT-z9-9TY"/>
-                            <constraint firstItem="reO-gZ-scj" firstAttribute="leading" secondItem="7t9-0w-lhL" secondAttribute="leadingMargin" constant="38" id="TLZ-fM-u2Q"/>
                             <constraint firstItem="XqX-Lr-APT" firstAttribute="leading" secondItem="Qx2-WB-EBI" secondAttribute="trailing" constant="33" id="VZK-qf-7TU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="reO-gZ-scj" secondAttribute="trailing" constant="69" id="Yte-Uu-wdb"/>
-                            <constraint firstItem="1Sq-7M-rTR" firstAttribute="leading" secondItem="7t9-0w-lhL" secondAttribute="leadingMargin" constant="74" id="j5L-Eo-khh"/>
-                            <constraint firstItem="APa-0l-wMm" firstAttribute="centerX" secondItem="7t9-0w-lhL" secondAttribute="centerX" id="lxJ-4H-ptq"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" tag="2" title="Profile" image="Profile Tab Icon" id="Cln-db-AGx"/>
                     <connections>
-                        <outlet property="userNameL" destination="Qx2-WB-EBI" id="dlg-X2-cb8"/>
-                        <outlet property="userUII" destination="XqX-Lr-APT" id="6be-iX-z2g"/>
+                        <outlet property="cityLbl" destination="HGq-Jt-175" id="psl-Ie-ASu"/>
+                        <outlet property="imageView" destination="XqX-Lr-APT" id="jfi-Z1-cfo"/>
+                        <outlet property="usrLbl" destination="Qx2-WB-EBI" id="kgr-so-tyq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QXa-I2-DO8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="998" y="848"/>
+            <point key="canvasLocation" x="997.60000000000002" y="847.82608695652175"/>
         </scene>
         <!--Messages-->
         <scene sceneID="OOO-NX-mDu">
