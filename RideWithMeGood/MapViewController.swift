@@ -2,8 +2,8 @@
 //  MapViewController.swift
 //  RideWithMeGood
 //
-//  Created by Marcello Folco on 2017-07-17.
-//  Copyright © 2017 Marcello Folco. All rights reserved.
+//  Created by Martin Nadeau on 2017-07-17.
+//  Copyright © 2017 Martin Nadeau. All rights reserved.
 //
 
 import UIKit
