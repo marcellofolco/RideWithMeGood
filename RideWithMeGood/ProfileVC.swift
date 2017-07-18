@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  ProfileVC.swift
 //  RideWithMeGood
 //
 //  Created by User on 2017-07-14.
@@ -13,7 +13,7 @@ import Firebase
 import FirebaseAuth
 
 
-class ProfileViewController: UIViewController,FBSDKLoginButtonDelegate {
+class ProfileVC: UIViewController,FBSDKLoginButtonDelegate {
     
     
     let loginButton = FBSDKLoginButton()
