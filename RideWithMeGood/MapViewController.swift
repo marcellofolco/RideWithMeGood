@@ -25,6 +25,7 @@ class MapViewController: UIViewController, UIBarPositioningDelegate, MKMapViewDe
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
+        manager.distanceFilter = 50
         manager.startUpdatingLocation()
         
         infoRef.isHidden = true
