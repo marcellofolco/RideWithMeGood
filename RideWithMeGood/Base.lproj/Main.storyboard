@@ -481,7 +481,7 @@
         <!--UserVC-->
         <scene sceneID="ofH-x9-PCc">
             <objects>
-                <viewController storyboardIdentifier="UserProfile" title="UserVC" id="hvl-Cw-e3D" customClass="ProfileViewController" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfile" title="UserVC" id="hvl-Cw-e3D" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fLS-nX-mj6"/>
                         <viewControllerLayoutGuide type="bottom" id="tvU-ZW-Mgr"/>
