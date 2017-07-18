@@ -95,6 +95,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFL-jf-SYw">
                                                 <rect key="frame" x="117" y="535" width="141" height="30"/>
                                                 <state key="normal" title="Login with Facebook"/>
+                                                <connections>
+                                                    <action selector="loginFacebook:" destination="6O7-dv-TBC" eventType="touchUpInside" id="D3x-VD-87G"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.26274509800000001" green="0.50588235290000005" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -481,7 +484,7 @@
         <!--UserVC-->
         <scene sceneID="ofH-x9-PCc">
             <objects>
-                <viewController storyboardIdentifier="UserProfile" title="UserVC" id="hvl-Cw-e3D" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfile" title="UserVC" id="hvl-Cw-e3D" customClass="ProfileViewController" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fLS-nX-mj6"/>
                         <viewControllerLayoutGuide type="bottom" id="tvU-ZW-Mgr"/>
@@ -503,6 +506,13 @@
                                     <constraint firstAttribute="height" constant="128" id="yzO-8F-JTi"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Dl-Mb-cCQ">
+                                <rect key="frame" x="128" y="147" width="74" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.38307487959999997" green="0.57333666090000002" blue="0.7255648375" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -512,10 +522,15 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" tag="2" title="Profile" image="Profile Tab Icon" id="Cln-db-AGx"/>
+                    <connections>
+                        <outlet property="cityLbl" destination="1Dl-Mb-cCQ" id="jyt-c5-7le"/>
+                        <outlet property="imageView" destination="XqX-Lr-APT" id="7Cm-yw-EbC"/>
+                        <outlet property="usrLbl" destination="Qx2-WB-EBI" id="zSk-OI-ygR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QXa-I2-DO8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="997.60000000000002" y="847.82608695652175"/>
+            <point key="canvasLocation" x="997.60000000000002" y="846.9265367316342"/>
         </scene>
         <!--Messages-->
         <scene sceneID="OOO-NX-mDu">
