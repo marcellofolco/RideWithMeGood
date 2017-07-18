@@ -490,24 +490,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qx2-WB-EBI">
-                                <rect key="frame" x="128" y="107" width="79" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Full name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qx2-WB-EBI">
+                                <rect key="frame" x="128" y="107" width="74" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reO-gZ-scj">
-                                <rect key="frame" x="54" y="283" width="236" height="30"/>
-                                <state key="normal" title="Find Local bike shop"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Sq-7M-rTR">
-                                <rect key="frame" x="90" y="369" width="164" height="30"/>
-                                <state key="normal" title="Find events nearby"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APa-0l-wMm">
-                                <rect key="frame" x="134" y="419" width="107" height="30"/>
-                                <state key="normal" title="Schedule a ride"/>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile Pic" translatesAutoresizingMaskIntoConstraints="NO" id="XqX-Lr-APT">
                                 <rect key="frame" x="240" y="124" width="128" height="128"/>
                                 <constraints>
@@ -518,23 +506,16 @@
                         </subviews>
                         <color key="backgroundColor" red="0.38307487959999997" green="0.57333666090000002" blue="0.7255648375" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="reO-gZ-scj" firstAttribute="top" secondItem="XqX-Lr-APT" secondAttribute="bottom" constant="31" id="1dY-eu-OWk"/>
                             <constraint firstItem="XqX-Lr-APT" firstAttribute="top" secondItem="7t9-0w-lhL" secondAttribute="top" constant="124" id="A5d-8V-irY"/>
-                            <constraint firstItem="APa-0l-wMm" firstAttribute="top" secondItem="1Sq-7M-rTR" secondAttribute="bottom" constant="20" id="BX1-7K-Yo2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XqX-Lr-APT" secondAttribute="trailing" constant="-9" id="LMH-8w-8Bl"/>
-                            <constraint firstItem="reO-gZ-scj" firstAttribute="centerX" secondItem="1Sq-7M-rTR" secondAttribute="centerX" id="PsT-z9-9TY"/>
-                            <constraint firstItem="reO-gZ-scj" firstAttribute="leading" secondItem="7t9-0w-lhL" secondAttribute="leadingMargin" constant="38" id="TLZ-fM-u2Q"/>
                             <constraint firstItem="XqX-Lr-APT" firstAttribute="leading" secondItem="Qx2-WB-EBI" secondAttribute="trailing" constant="33" id="VZK-qf-7TU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="reO-gZ-scj" secondAttribute="trailing" constant="69" id="Yte-Uu-wdb"/>
-                            <constraint firstItem="1Sq-7M-rTR" firstAttribute="leading" secondItem="7t9-0w-lhL" secondAttribute="leadingMargin" constant="74" id="j5L-Eo-khh"/>
-                            <constraint firstItem="APa-0l-wMm" firstAttribute="centerX" secondItem="7t9-0w-lhL" secondAttribute="centerX" id="lxJ-4H-ptq"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" tag="2" title="Profile" image="Profile Tab Icon" id="Cln-db-AGx"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QXa-I2-DO8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="998" y="848"/>
+            <point key="canvasLocation" x="997.60000000000002" y="847.82608695652175"/>
         </scene>
         <!--Messages-->
         <scene sceneID="OOO-NX-mDu">
