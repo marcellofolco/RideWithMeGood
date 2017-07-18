@@ -141,7 +141,7 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
                                 
                                 self.ref.child("users").child(user.uid).setValue(userInfo)
                                 
-                                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfile")
+                                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarVC")
                                 
                                 self.present(vc, animated: true, completion: nil)
                                 
