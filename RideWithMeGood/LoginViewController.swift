@@ -38,12 +38,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
         
     }
     
-    func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
-        
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfile")
-        
-        self.present(vc, animated: true, completion: nil)
-    }
     
     @IBAction func btnLogin(_ sender: Any) {
         

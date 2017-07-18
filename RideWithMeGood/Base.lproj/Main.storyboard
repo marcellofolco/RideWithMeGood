@@ -531,10 +531,6 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" tag="2" title="Profile" image="Profile Tab Icon" id="Cln-db-AGx"/>
-                    <connections>
-                        <outlet property="userNameL" destination="Qx2-WB-EBI" id="dlg-X2-cb8"/>
-                        <outlet property="userUII" destination="XqX-Lr-APT" id="6be-iX-z2g"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QXa-I2-DO8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
