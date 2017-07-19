@@ -18,8 +18,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
     @IBOutlet weak var btnLogin: UIButton!
     
     
-    
-    
     @IBAction func loginFacebook(_ sender: Any) {
         
         
@@ -27,14 +25,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
         self.present(vc!, animated: true, completion: nil)
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
     
     override func viewDidLoad() {
         
@@ -50,12 +40,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate{
         GIDSignIn.sharedInstance().signInSilently()
         
     }
-    
-    
-    
-    
-    
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
