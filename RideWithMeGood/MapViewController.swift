@@ -11,20 +11,29 @@ import UIKit
 import Mapbox
 import CoreLocation
 
-class MapViewController: UIViewController, UIBarPositioningDelegate, CLLocationManagerDelegate, MGLMapViewDelegate{
+class MapViewController: UIViewController, UIBarPositioningDelegate, CLLocationManagerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, MGLMapViewDelegate{
     
     //MKMapViewDelegate
     
+    @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var navBar: UINavigationBar!
-   // @IBOutlet weak var map: MKMapView!
-    
+   @IBOutlet weak var filterPicker: UIPickerView!
     @IBOutlet weak var infoRef: UIView!
     @IBOutlet weak var mapView: MGLMapView!
     
+    // @IBOutlet weak var map: MKMapView!
+    
+    var filters = ["Bike Shops", "Events", "Rides"]
     var manager = CLLocationManager()
+    let distanceSpan:Double = 500
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.filterPicker.delegate = self
+        self.filterPicker.dataSource = self
+        
+        filterPicker.isHidden = true
         
         manager = CLLocationManager()
         manager.delegate = self
@@ -54,6 +63,33 @@ class MapViewController: UIViewController, UIBarPositioningDelegate, CLLocationM
     func position(for bar: UIBarPositioning) -> UIBarPosition{
         return .topAttached;
     }
+    
+    // returns the number of 'columns' to display.
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // returns the # of rows in each component..
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return filters.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return filters[row]
+    }
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        filterButton.setTitle(filters[row], for: .normal)
+        filterPicker.isHidden = true;
+    }
+    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+        filterPicker.isHidden = false
+        return false
+    }
+    
+    @IBAction func filterButtonPressed(_ sender: Any) {
+        filterPicker.isHidden = false
+    }
+   
     
     /*func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
