@@ -7,11 +7,13 @@
 //
 
 import UIKit
-import MapKit
+//import MapKit
 import Mapbox
 import CoreLocation
 
-class MapViewController: UIViewController, UIBarPositioningDelegate, MKMapViewDelegate, CLLocationManagerDelegate, MGLMapViewDelegate{
+class MapViewController: UIViewController, UIBarPositioningDelegate, CLLocationManagerDelegate, MGLMapViewDelegate{
+    
+    //MKMapViewDelegate
     
     @IBOutlet weak var navBar: UINavigationBar!
    // @IBOutlet weak var map: MKMapView!
@@ -45,6 +47,7 @@ class MapViewController: UIViewController, UIBarPositioningDelegate, MKMapViewDe
     
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         
+        
         return true
     }
     
@@ -52,7 +55,7 @@ class MapViewController: UIViewController, UIBarPositioningDelegate, MKMapViewDe
         return .topAttached;
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    /*func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let userLocation:CLLocation = locations[0]
         
@@ -72,12 +75,12 @@ class MapViewController: UIViewController, UIBarPositioningDelegate, MKMapViewDe
         
         //map.setRegion(region, animated: false)
         
-        let pin = MKPointAnnotation()
+        //let pin = MKPointAnnotation()
         pin.coordinate.latitude = userLocation.coordinate.latitude
         pin.coordinate.longitude = userLocation.coordinate.longitude
         pin.title = "Your Movement Line"
         //map.addAnnotation(pin)
         
     }
-    
+    */
 }

@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="courier.gif" translatesAutoresizingMaskIntoConstraints="NO" id="olq-9j-FxI">
-                                                <rect key="frame" x="0.0" y="135" width="375" height="281"/>
+                                                <rect key="frame" x="0.0" y="135" width="375" height="280.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="olq-9j-FxI" secondAttribute="height" multiplier="375:281" id="ogc-LH-yWa"/>
                                                 </constraints>
@@ -42,7 +42,7 @@
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2nr-v0-82o">
-                                                <rect key="frame" x="68" y="409" width="239" height="30"/>
+                                                <rect key="frame" x="68" y="408.5" width="239" height="30"/>
                                                 <color key="backgroundColor" white="1" alpha="0.49582435339999997" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="2nr-v0-82o" secondAttribute="height" multiplier="239:30" id="G4n-MN-P75"/>
@@ -52,14 +52,14 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tr3-iM-0Ya">
-                                                <rect key="frame" x="68" y="447" width="239" height="30"/>
+                                                <rect key="frame" x="68" y="446.5" width="239" height="30"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJT-SA-ZoP">
-                                                <rect key="frame" x="41" y="485" width="293" height="30"/>
+                                                <rect key="frame" x="41" y="484.5" width="293" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="yJT-SA-ZoP" secondAttribute="height" multiplier="293:30" id="W3h-gW-FRS"/>
                                                 </constraints>
@@ -69,7 +69,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9DW-To-IwS">
-                                                <rect key="frame" x="68" y="600" width="58" height="32"/>
+                                                <rect key="frame" x="68" y="599.5" width="58" height="32"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="14"/>
                                                 <state key="normal" title="Sign Up.">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -81,7 +81,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxS-7s-twn">
-                                                <rect key="frame" x="203" y="600" width="114" height="32"/>
+                                                <rect key="frame" x="203" y="599.5" width="114" height="32"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                                 <state key="normal" title="Forgot Password?">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -93,7 +93,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFL-jf-SYw">
-                                                <rect key="frame" x="117" y="535" width="141" height="30"/>
+                                                <rect key="frame" x="117" y="534.5" width="141" height="30"/>
                                                 <state key="normal" title="Login with Facebook"/>
                                                 <connections>
                                                     <action selector="loginFacebook:" destination="6O7-dv-TBC" eventType="touchUpInside" id="D3x-VD-87G"/>
@@ -215,23 +215,30 @@
                                         <real key="value" value="14"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="showsUserLocation" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="styleURL__" value="mapbox://styles/mapbox/streets-v10"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LDt-8a-lSW">
-                                <rect key="frame" x="0.0" y="357" width="375" height="261"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LDt-8a-lSW">
+                                <rect key="frame" x="0.0" y="421" width="375" height="197"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="0.30660021551724137" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LDt-8a-lSW" secondAttribute="height" multiplier="375:197" id="op8-6T-doJ"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="LDt-8a-lSW" secondAttribute="trailing" id="3Ib-W1-Bgu"/>
                             <constraint firstItem="FrN-W6-2zY" firstAttribute="top" secondItem="HNJ-gT-cM4" secondAttribute="bottom" id="Ehw-LY-fGm"/>
                             <constraint firstAttribute="trailing" secondItem="HNJ-gT-cM4" secondAttribute="trailing" id="Xah-hG-cmR"/>
                             <constraint firstItem="HNJ-gT-cM4" firstAttribute="top" secondItem="q3D-nt-RWp" secondAttribute="bottom" id="YKB-UV-43N"/>
+                            <constraint firstItem="FrN-W6-2zY" firstAttribute="top" secondItem="LDt-8a-lSW" secondAttribute="bottom" id="Yge-oO-axL"/>
                             <constraint firstItem="q3D-nt-RWp" firstAttribute="top" secondItem="QeC-bJ-NBC" secondAttribute="bottom" id="aRA-Ss-RwL"/>
                             <constraint firstItem="q3D-nt-RWp" firstAttribute="leading" secondItem="1Ca-P2-i4t" secondAttribute="leading" id="jDQ-fS-Td8"/>
                             <constraint firstItem="HNJ-gT-cM4" firstAttribute="leading" secondItem="1Ca-P2-i4t" secondAttribute="leading" id="oeo-oi-d5e"/>
                             <constraint firstAttribute="trailing" secondItem="q3D-nt-RWp" secondAttribute="trailing" id="pPr-pg-gdR"/>
+                            <constraint firstItem="LDt-8a-lSW" firstAttribute="leading" secondItem="1Ca-P2-i4t" secondAttribute="leading" id="vif-uA-pBU"/>
+                            <constraint firstItem="FrN-W6-2zY" firstAttribute="top" secondItem="HNJ-gT-cM4" secondAttribute="bottom" id="yEb-Vr-dgd"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="KkR-Vc-aI4"/>
@@ -264,7 +271,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="courier.gif" translatesAutoresizingMaskIntoConstraints="NO" id="MMp-VJ-2UZ">
-                                                <rect key="frame" x="0.0" y="135" width="375" height="281"/>
+                                                <rect key="frame" x="0.0" y="135" width="375" height="280.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="MMp-VJ-2UZ" secondAttribute="height" multiplier="375:281" id="gKx-Tj-bb4"/>
                                                 </constraints>
@@ -415,7 +422,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="courier.gif" translatesAutoresizingMaskIntoConstraints="NO" id="Emd-NX-Axy">
-                                                <rect key="frame" x="0.0" y="135" width="375" height="281"/>
+                                                <rect key="frame" x="0.0" y="135" width="375" height="280.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Emd-NX-Axy" secondAttribute="height" multiplier="375:281" id="VHT-dL-CQc"/>
                                                 </constraints>
