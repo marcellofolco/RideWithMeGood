@@ -81,7 +81,7 @@
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>MGLMapboxAccessToken</key>
-	<string>pk.eyJ1IjoibXRsemVuIiwiYSI6ImNqNTJwd2FtdzBnYjQzMW1ydWlkeXNxODAifQ.pPyO_spDCocCtsl12DyJdA</string>
+	<string>pk.eyJ1IjoibWFyY2g4NDYiLCJhIjoiY2o1OXk5b2g4MGUxMjJ3cDFoNDUxcDNhNiJ9.EJyDLzDJr_9v3ivYKxTMSg</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Shows your location on the map and helps improve OpenStreetMap.</string>
 </dict>

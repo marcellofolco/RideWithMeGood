@@ -21,9 +21,25 @@
 		A4DD41711F1D2C6600316C2E /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DD41701F1D2C6600316C2E /* Pin.swift */; };
 		A4DD41731F1D51A800316C2E /* WeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DD41721F1D51A800316C2E /* WeatherVC.swift */; };
 		A4DD41751F1D547500316C2E /* MessagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DD41741F1D547500316C2E /* MessagesVC.swift */; };
+		A4DD41791F1F910F00316C2E /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DD41781F1F910F00316C2E /* Mapbox.framework */; };
+		A4DD417A1F1F910F00316C2E /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A4DD41781F1F910F00316C2E /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE27C7C81F1E7C8000464692 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE27C7C71F1E7C8000464692 /* ProfileViewController.swift */; };
 		E9CC4DF2B0EB58201F8312D1 /* Pods_RideWithMeGood.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 395E2454D142E293905ABCB8 /* Pods_RideWithMeGood.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A4DD417B1F1F910F00316C2E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A4DD417A1F1F910F00316C2E /* Mapbox.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		395E2454D142E293905ABCB8 /* Pods_RideWithMeGood.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RideWithMeGood.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +61,7 @@
 		A4DD41701F1D2C6600316C2E /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		A4DD41721F1D51A800316C2E /* WeatherVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherVC.swift; sourceTree = "<group>"; };
 		A4DD41741F1D547500316C2E /* MessagesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesVC.swift; sourceTree = "<group>"; };
+		A4DD41781F1F910F00316C2E /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		CE27C7C71F1E7C8000464692 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DB070A4084E4E8A49C60A78B /* Pods-RideWithMeGood.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RideWithMeGood.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RideWithMeGood/Pods-RideWithMeGood.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,6 +72,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9CC4DF2B0EB58201F8312D1 /* Pods_RideWithMeGood.framework in Frameworks */,
+				A4DD41791F1F910F00316C2E /* Mapbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +99,7 @@
 		A499B1041F15322800E244B2 = {
 			isa = PBXGroup;
 			children = (
+				A4DD41781F1F910F00316C2E /* Mapbox.framework */,
 				A499B10F1F15322800E244B2 /* RideWithMeGood */,
 				A499B10E1F15322800E244B2 /* Products */,
 				19B01F21807FF5940B5E273E /* Pods */,
@@ -149,6 +168,7 @@
 				A499B10B1F15322800E244B2 /* Resources */,
 				D161FE892383EB19AA4C0B2D /* [CP] Embed Pods Frameworks */,
 				BFD94BE132D6AC22A402B9B0 /* [CP] Copy Pods Resources */,
+				A4DD417B1F1F910F00316C2E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -171,7 +191,7 @@
 				TargetAttributes = {
 					A499B10C1F15322800E244B2 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = ASTTPZ9JXF;
+						DevelopmentTeam = MV7HZ99EDM;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -400,7 +420,11 @@
 			baseConfigurationReference = DB070A4084E4E8A49C60A78B /* Pods-RideWithMeGood.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ASTTPZ9JXF;
+				DEVELOPMENT_TEAM = MV7HZ99EDM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = RideWithMeGood/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marcellofolco.RideWithMeGood;
@@ -414,7 +438,11 @@
 			baseConfigurationReference = 86861FC56054FD6CAF855B82 /* Pods-RideWithMeGood.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = ASTTPZ9JXF;
+				DEVELOPMENT_TEAM = MV7HZ99EDM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = RideWithMeGood/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marcellofolco.RideWithMeGood;

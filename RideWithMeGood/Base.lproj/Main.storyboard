@@ -180,7 +180,8 @@
                                     <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="Search" id="w98-se-k7y">
+                                    <navigationItem id="w98-se-k7y">
+                                        <nil key="title"/>
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="dmi-gy-J2h">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Jh9-2L-ujm">
                                                 <rect key="frame" x="16" y="7" width="83" height="30"/>
@@ -188,6 +189,17 @@
                                                 <state key="normal" title="Nearby"/>
                                             </button>
                                         </barButtonItem>
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NHM-Ow-z9a">
+                                            <rect key="frame" x="133" y="7" width="110" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <state key="normal" title="Filter">
+                                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="filterButtonPressed:" destination="tsU-bu-adb" eventType="touchUpInside" id="6XT-Qr-LUO"/>
+                                            </connections>
+                                        </button>
                                         <barButtonItem key="rightBarButtonItem" title="MyRidesBarItem" style="plain" id="oWf-XU-fi6">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PUy-SG-yN1">
                                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
@@ -201,36 +213,72 @@
                                     <outlet property="delegate" destination="tsU-bu-adb" id="0P3-cB-2K1"/>
                                 </connections>
                             </navigationBar>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hPn-wT-OCL">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HNJ-gT-cM4" userLabel="MapView" customClass="MGLMapView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                            </mapView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LDt-8a-lSW">
-                                <rect key="frame" x="0.0" y="357" width="375" height="261"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ns2-ak-dS8">
+                                        <rect key="frame" x="76" y="0.0" width="222" height="158"/>
+                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.75" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="222" id="bl0-u0-cmL"/>
+                                            <constraint firstAttribute="height" constant="158" id="stw-9n-xGt"/>
+                                        </constraints>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="ns2-ak-dS8" firstAttribute="centerX" secondItem="HNJ-gT-cM4" secondAttribute="centerX" id="qVt-9h-ZW3"/>
+                                    <constraint firstItem="ns2-ak-dS8" firstAttribute="top" secondItem="HNJ-gT-cM4" secondAttribute="top" id="uT8-Xv-gk0"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="latitude">
+                                        <real key="value" value="45.4882780469"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="longitude">
+                                        <real key="value" value="-73.583740998400003"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="zoomLevel">
+                                        <real key="value" value="14"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="showsUserLocation" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="styleURL__" value="mapbox://styles/mapbox/streets-v10"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LDt-8a-lSW">
+                                <rect key="frame" x="0.0" y="421" width="375" height="197"/>
+                                <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="0.30660021551724137" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="LDt-8a-lSW" secondAttribute="height" multiplier="375:197" id="op8-6T-doJ"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FrN-W6-2zY" firstAttribute="top" secondItem="hPn-wT-OCL" secondAttribute="bottom" id="H7D-gU-NGO"/>
-                            <constraint firstItem="hPn-wT-OCL" firstAttribute="leading" secondItem="1Ca-P2-i4t" secondAttribute="leading" id="KnP-Dz-k0n"/>
-                            <constraint firstItem="hPn-wT-OCL" firstAttribute="top" secondItem="q3D-nt-RWp" secondAttribute="bottom" id="KrZ-nD-M7H"/>
+                            <constraint firstAttribute="trailing" secondItem="LDt-8a-lSW" secondAttribute="trailing" id="3Ib-W1-Bgu"/>
+                            <constraint firstItem="FrN-W6-2zY" firstAttribute="top" secondItem="HNJ-gT-cM4" secondAttribute="bottom" id="Ehw-LY-fGm"/>
+                            <constraint firstAttribute="trailing" secondItem="HNJ-gT-cM4" secondAttribute="trailing" id="Xah-hG-cmR"/>
+                            <constraint firstItem="HNJ-gT-cM4" firstAttribute="top" secondItem="q3D-nt-RWp" secondAttribute="bottom" id="YKB-UV-43N"/>
+                            <constraint firstItem="FrN-W6-2zY" firstAttribute="top" secondItem="LDt-8a-lSW" secondAttribute="bottom" id="Yge-oO-axL"/>
                             <constraint firstItem="q3D-nt-RWp" firstAttribute="top" secondItem="QeC-bJ-NBC" secondAttribute="bottom" id="aRA-Ss-RwL"/>
                             <constraint firstItem="q3D-nt-RWp" firstAttribute="leading" secondItem="1Ca-P2-i4t" secondAttribute="leading" id="jDQ-fS-Td8"/>
+                            <constraint firstItem="HNJ-gT-cM4" firstAttribute="leading" secondItem="1Ca-P2-i4t" secondAttribute="leading" id="oeo-oi-d5e"/>
                             <constraint firstAttribute="trailing" secondItem="q3D-nt-RWp" secondAttribute="trailing" id="pPr-pg-gdR"/>
-                            <constraint firstAttribute="trailing" secondItem="hPn-wT-OCL" secondAttribute="trailing" id="u23-fk-rp1"/>
+                            <constraint firstItem="LDt-8a-lSW" firstAttribute="leading" secondItem="1Ca-P2-i4t" secondAttribute="leading" id="vif-uA-pBU"/>
+                            <constraint firstItem="FrN-W6-2zY" firstAttribute="top" secondItem="HNJ-gT-cM4" secondAttribute="bottom" id="yEb-Vr-dgd"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="KkR-Vc-aI4"/>
                     <connections>
+                        <outlet property="filterButton" destination="NHM-Ow-z9a" id="4sU-Gt-f1l"/>
+                        <outlet property="filterPicker" destination="ns2-ak-dS8" id="Gm5-F9-bB0"/>
                         <outlet property="infoRef" destination="LDt-8a-lSW" id="Ahz-BH-H9G"/>
-                        <outlet property="map" destination="hPn-wT-OCL" id="afZ-iQ-hFC"/>
+                        <outlet property="mapView" destination="HNJ-gT-cM4" id="Hyo-pM-ueC"/>
                         <outlet property="navBar" destination="q3D-nt-RWp" id="u0j-Ki-VAB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y06-cx-RBg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1982" y="848"/>
+            <point key="canvasLocation" x="1981.5999999999999" y="846.9265367316342"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="kcR-AK-shy">
