@@ -32,12 +32,41 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
         super.viewDidLoad()
         gifView.loadGif(name: "courier")
         
+        
+        
+        
+        let facebookButton = FBSDKLoginButton()
+        
+        facebookButton.frame = CGRect(x: 199, y: 526, width: 110, height: 42)
+        facebookButton.layer.cornerRadius = 18
+        view.addSubview(facebookButton)
+        
+        facebookButton.readPermissions = ["public_profile", "email","user_friends","user_location"]
+        
+        
+        facebookButton.delegate = self
+        
+        
+        
+        let googleButton = GIDSignInButton()
+        googleButton.frame = CGRect(x: 65, y: 523, width: 100, height: 30)
+        googleButton.layer.cornerRadius = 18
+        view.addSubview(googleButton)
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
+        
+        GIDSignIn.sharedInstance().delegate = self
+        
+        
+        GIDSignIn.sharedInstance().signInSilently()
+        
+        
        
         
-       setupFacebookButtons()
+       //setupFacebookButtons()
         
         
-        setupGoogleButtons()
+        //setupGoogleButtons()
         
         
     }
@@ -45,7 +74,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
     
     
     
-    fileprivate func setupGoogleButtons(){
+   /* fileprivate func setupGoogleButtons(){
         
         
         
@@ -64,10 +93,10 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
         //GIDSignIn.sharedInstance().signIn()
 
         
-  }
+  }*/
     
     
-    fileprivate func setupFacebookButtons(){
+   /* fileprivate func setupFacebookButtons(){
         
         let facebookButton = FBSDKLoginButton()
         
@@ -80,7 +109,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
         
         facebookButton.delegate = self
         
-    }
+    }*/
     
     
     
