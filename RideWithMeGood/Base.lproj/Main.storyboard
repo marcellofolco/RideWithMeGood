@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--loginView-->
         <scene sceneID="kSK-Gr-SGx">
             <objects>
-                <viewController id="6O7-dv-TBC" customClass="LoginViewController" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" title="loginView" id="6O7-dv-TBC" customClass="LoginViewController" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XUA-sP-ekA"/>
                         <viewControllerLayoutGuide type="bottom" id="H8a-tW-W9Y"/>
@@ -92,34 +92,25 @@
                                                     </segue>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFL-jf-SYw">
-                                                <rect key="frame" x="117" y="535" width="141" height="30"/>
-                                                <state key="normal" title="Login with Facebook"/>
-                                                <connections>
-                                                    <action selector="loginFacebook:" destination="6O7-dv-TBC" eventType="touchUpInside" id="D3x-VD-87G"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.26274509800000001" green="0.50588235290000005" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="28m-Lh-qHy" firstAttribute="leading" secondItem="ZNA-OG-jPB" secondAttribute="leading" constant="51" id="0IM-IV-kno"/>
                                             <constraint firstAttribute="trailing" secondItem="28m-Lh-qHy" secondAttribute="trailing" constant="51" id="3S1-G5-H2P"/>
-                                            <constraint firstItem="lFL-jf-SYw" firstAttribute="top" secondItem="yJT-SA-ZoP" secondAttribute="bottom" constant="20" id="3dQ-po-FXq"/>
                                             <constraint firstAttribute="trailing" secondItem="olq-9j-FxI" secondAttribute="trailing" id="8Ja-vd-2IJ"/>
+                                            <constraint firstItem="vxS-7s-twn" firstAttribute="top" secondItem="yJT-SA-ZoP" secondAttribute="bottom" constant="85" id="C2o-QH-pNh"/>
                                             <constraint firstItem="vxS-7s-twn" firstAttribute="centerX" secondItem="ZNA-OG-jPB" secondAttribute="centerX" constant="72.5" id="CbS-2X-rNd"/>
                                             <constraint firstItem="tr3-iM-0Ya" firstAttribute="trailing" secondItem="2nr-v0-82o" secondAttribute="trailing" id="DRU-I9-wht"/>
-                                            <constraint firstItem="9DW-To-IwS" firstAttribute="top" secondItem="lFL-jf-SYw" secondAttribute="bottom" constant="35" id="FZ0-Bb-6Pb"/>
                                             <constraint firstItem="yJT-SA-ZoP" firstAttribute="centerX" secondItem="ZNA-OG-jPB" secondAttribute="centerX" id="FuD-7O-7Bw"/>
                                             <constraint firstItem="tr3-iM-0Ya" firstAttribute="top" secondItem="2nr-v0-82o" secondAttribute="bottom" constant="8" id="GbF-V4-l3u"/>
                                             <constraint firstItem="tr3-iM-0Ya" firstAttribute="width" secondItem="2nr-v0-82o" secondAttribute="height" multiplier="239:30" id="HSX-gy-BXs"/>
                                             <constraint firstItem="9DW-To-IwS" firstAttribute="centerX" secondItem="ZNA-OG-jPB" secondAttribute="centerX" constant="-90.5" id="PhU-Kc-RMl"/>
+                                            <constraint firstItem="vxS-7s-twn" firstAttribute="baseline" secondItem="9DW-To-IwS" secondAttribute="baseline" id="Q3y-mg-tUm"/>
                                             <constraint firstItem="2nr-v0-82o" firstAttribute="top" secondItem="olq-9j-FxI" secondAttribute="bottom" constant="-7.5" id="WAy-hj-3Ft"/>
                                             <constraint firstItem="olq-9j-FxI" firstAttribute="leading" secondItem="ZNA-OG-jPB" secondAttribute="leading" id="Y5p-VY-Nnh"/>
                                             <constraint firstItem="28m-Lh-qHy" firstAttribute="top" secondItem="ZNA-OG-jPB" secondAttribute="top" constant="8" id="YKT-el-ykK"/>
                                             <constraint firstItem="olq-9j-FxI" firstAttribute="top" secondItem="28m-Lh-qHy" secondAttribute="bottom" constant="-33" id="Z15-ZW-YWo"/>
-                                            <constraint firstItem="lFL-jf-SYw" firstAttribute="centerX" secondItem="ZNA-OG-jPB" secondAttribute="centerX" id="cDf-Qy-J3k"/>
                                             <constraint firstItem="yJT-SA-ZoP" firstAttribute="top" secondItem="tr3-iM-0Ya" secondAttribute="bottom" constant="8" id="fIy-uD-e4G"/>
-                                            <constraint firstItem="vxS-7s-twn" firstAttribute="top" secondItem="lFL-jf-SYw" secondAttribute="bottom" constant="35" id="hqb-en-ilD"/>
                                             <constraint firstItem="tr3-iM-0Ya" firstAttribute="leading" secondItem="2nr-v0-82o" secondAttribute="leading" id="qsa-Dw-ihR"/>
                                             <constraint firstItem="2nr-v0-82o" firstAttribute="centerX" secondItem="ZNA-OG-jPB" secondAttribute="centerX" id="w8F-SI-nEa"/>
                                         </constraints>
@@ -493,12 +484,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Full name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qx2-WB-EBI">
-                                <rect key="frame" x="128" y="107" width="74" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile Pic" translatesAutoresizingMaskIntoConstraints="NO" id="XqX-Lr-APT">
                                 <rect key="frame" x="240" y="124" width="128" height="128"/>
                                 <constraints>
@@ -506,9 +491,29 @@
                                     <constraint firstAttribute="height" constant="128" id="yzO-8F-JTi"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Dl-Mb-cCQ">
-                                <rect key="frame" x="128" y="147" width="74" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Full name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qx2-WB-EBI">
+                                <rect key="frame" x="128" y="95" width="158" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrl-V8-WPi">
+                                <rect key="frame" x="20" y="580" width="339" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="LogOut from FaceBook">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutFromFacebook:" destination="hvl-Cw-e3D" eventType="touchUpInside" id="xoj-yN-jB2"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Dl-Mb-cCQ">
+                                <rect key="frame" x="128" y="144" width="74" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="4Kg-qn-AYB"/>
+                                    <constraint firstAttribute="width" constant="74" id="AzI-Ws-mHd"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -516,21 +521,25 @@
                         </subviews>
                         <color key="backgroundColor" red="0.38307487959999997" green="0.57333666090000002" blue="0.7255648375" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="XqX-Lr-APT" firstAttribute="top" secondItem="7t9-0w-lhL" secondAttribute="top" constant="124" id="A5d-8V-irY"/>
+                            <constraint firstItem="1Dl-Mb-cCQ" firstAttribute="top" secondItem="Qx2-WB-EBI" secondAttribute="bottom" constant="28" id="5Vr-fa-p2m"/>
+                            <constraint firstItem="XqX-Lr-APT" firstAttribute="top" secondItem="7t9-0w-lhL" secondAttribute="top" constant="124" id="I95-kn-lVg"/>
+                            <constraint firstItem="1Dl-Mb-cCQ" firstAttribute="leading" secondItem="Qx2-WB-EBI" secondAttribute="leading" id="Iqy-S1-Ysj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XqX-Lr-APT" secondAttribute="trailing" constant="-9" id="LMH-8w-8Bl"/>
-                            <constraint firstItem="XqX-Lr-APT" firstAttribute="leading" secondItem="Qx2-WB-EBI" secondAttribute="trailing" constant="33" id="VZK-qf-7TU"/>
+                            <constraint firstItem="XqX-Lr-APT" firstAttribute="top" secondItem="Qx2-WB-EBI" secondAttribute="bottom" constant="8" symbolic="YES" id="gav-ja-B2Q"/>
+                            <constraint firstItem="XqX-Lr-APT" firstAttribute="leading" secondItem="1Dl-Mb-cCQ" secondAttribute="trailing" constant="38" id="hX7-vg-hNl"/>
+                            <constraint firstItem="XqX-Lr-APT" firstAttribute="leading" secondItem="Qx2-WB-EBI" secondAttribute="trailing" constant="38" id="qy2-qW-Auk"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" tag="2" title="Profile" image="Profile Tab Icon" id="Cln-db-AGx"/>
                     <connections>
-                        <outlet property="cityLbl" destination="1Dl-Mb-cCQ" id="jyt-c5-7le"/>
-                        <outlet property="imageView" destination="XqX-Lr-APT" id="7Cm-yw-EbC"/>
-                        <outlet property="usrLbl" destination="Qx2-WB-EBI" id="zSk-OI-ygR"/>
+                        <outlet property="cityLbl" destination="1Dl-Mb-cCQ" id="wJg-xh-eaT"/>
+                        <outlet property="imageView" destination="XqX-Lr-APT" id="7qS-eg-FMx"/>
+                        <outlet property="usrLbl" destination="Qx2-WB-EBI" id="kLB-BU-gHV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QXa-I2-DO8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="997.60000000000002" y="846.9265367316342"/>
+            <point key="canvasLocation" x="997.5" y="846.5"/>
         </scene>
         <!--Messages-->
         <scene sceneID="OOO-NX-mDu">
@@ -570,10 +579,10 @@
             </objects>
             <point key="canvasLocation" x="1982" y="59"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="xer-7X-tuA">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarVC" automaticallyAdjustsScrollViewInsets="NO" id="XDv-s9-YTC" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarVC" automaticallyAdjustsScrollViewInsets="NO" id="XDv-s9-YTC" customClass="TabBarViewController" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="dLL-Pw-5xV">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

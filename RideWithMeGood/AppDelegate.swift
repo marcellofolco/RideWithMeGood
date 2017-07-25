@@ -16,7 +16,7 @@ import Mapbox
 import CoreLocation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,GIDSignInDelegate {
 
     var window: UIWindow?
     
@@ -28,7 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         FirebaseApp.configure()
         
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        
         GIDSignIn.sharedInstance().delegate = self
+        
+        
         
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -90,6 +93,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        
+        
+        FBSDKAppEvents.activateApp()
+        
+        
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -118,7 +127,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             }
             
             guard let uid = user?.uid else { return }
+            
+            
+            
+            //let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarVC")
+            
+            //self.present(vc, animated: true, completion: nil)
+
+            
             print ("Successfully logged into Firebase with Google", uid)
+            
+            
+           /* let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarVC")
+            
+            
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = vc
+            self.window?.makeKeyAndVisible()*/
+            
+            
+            
     
     })
 }
@@ -126,6 +154,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
         // ...
+        
+       /* let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
+        */
+        
+        
     }
 
 
