@@ -65,7 +65,6 @@ class ProfileViewController: UIViewController {
         
         self.userPr1 = tbvc.user1
         
-
     }
     
    
