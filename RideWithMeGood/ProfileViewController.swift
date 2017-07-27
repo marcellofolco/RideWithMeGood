@@ -9,14 +9,16 @@
 import UIKit
 import FBSDKLoginKit
 
+import GoogleSignIn
+
 import Firebase
 import FirebaseAuth
 
 
-class ProfileViewController: UIViewController,FBSDKLoginButtonDelegate {
+class ProfileViewController: UIViewController {
     
     
-    let loginButton = FBSDKLoginButton()
+    
     
     
     
@@ -32,79 +34,115 @@ class ProfileViewController: UIViewController,FBSDKLoginButtonDelegate {
     
     
     
+    
+    var userPr1:User = User()
+    
+    var userPr2:User = User()
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        /*let  handle = Auth.auth().addStateDidChangeListener { (auth, user) in
-         // ...
-         }*/
-        
-        view.addSubview(loginButton)
-        //frame's are obselete, please use constraints instead because its 2016 after all
-        //self.loginButton.frame = CGRect(x: 16, y: 50, width: view.frame.width - 32, height: 50)
-        
-        self.loginButton.frame = CGRect(x: 0, y: 508, width: 320, height: 60)
-        
-        
-        self.loginButton.readPermissions = ["public_profile", "email","user_friends"]
-        
-        
-        self.loginButton.delegate = self
-        
         // Do any additional setup after loading the view.
-    }
-    
-    
-    
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        
-        print("User logged in...")
-        
-        // let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
         
         
-        print("User logged in firebase app")
+        let tbvc = tabBarController as! TabBarViewController
         
-        
-        FBSDKGraphRequest.init(graphPath: "me", parameters: ["fields":"first_name, last_name,city, picture.type(large)"]).start { (connection, result, error) -> Void in
+        if let accessToken = FBSDKAccessToken.current() {
             
-            let response = result as AnyObject?
-            let first_name = response?.object(forKey: "first_name") as AnyObject?
-            let strFirstName: String = (first_name as? String)!
+            self.userPr1 = tbvc.user1
+        } else if(Auth.auth().currentUser != nil){
             
-            let last_name = response?.object(forKey: "last_name") as AnyObject?
-            
-            
-            
-            let strLastName: String = (last_name as? String)!
-            
-            let city = response?.object(forKey: "city") as AnyObject?
-            
-            let strCity: String = (city as? String)!
-            
-            let strPictureURL: String = (((response?.object(forKey:"picture") as AnyObject).object(forKey:"data") as AnyObject).object(forKey:"url") as? String)!
-            
-            self.usrLbl.text = (strFirstName)+" "+(strLastName)
-            
-            self.cityLbl.text = strCity
-            
-            self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string: strPictureURL)! as URL)! as Data)
-            
+            self.userPr2 = tbvc.user2
             
             
             
         }
+
+    }
+    
+   
+    override func viewWillAppear(_ animated: Bool) {
+        
+        
+        super.viewWillAppear(animated)
+        
+        
+        /*
+        if let accessToken1 = FBSDKAccessToken.current() {
+            
+            self.usrLbl.text = userPr1.first_Name()+" "+userPr1.last_Name()
+            
+            self.cityLbl.text = userPr1.city
+            
+            self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string: userPr1.picture)! as URL)! as Data)
+            
+            self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
+            
+            self.imageView.clipsToBounds = true;
+            
+        } else if Auth.auth().currentUser != nil{
+            
+            self.usrLbl.text = userPr2.firstName+" "+userPr2.lastName
+            
+            self.cityLbl.text = userPr2.email
+            
+            //self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string:userPr2.picture)! as URL)! as Data)
+            
+            
+            //print(userPr2.currentUser())
+            
+        }*/
+        
+        
+        
+        
+        self.usrLbl.text = userPr1.first_Name()+" "+userPr1.last_Name()
+        
+        self.cityLbl.text = userPr1.city
+        
+        self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string: userPr1.picture)! as URL)! as Data)
+        
+        self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
+        
+        self.imageView.clipsToBounds = true;
+        
+        
         
     }
     
     
     
-    
-    
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        print("User logged out")
+    @IBAction func Logout(_ sender: Any) {
+        
+        
+        let loginManager = FBSDKLoginManager()
+        
+        loginManager.logOut()
+        
+        
+        
+        
+        let vc2:LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "login") as! LoginViewController
+        
+        
+        
+        
+        self.present(vc2, animated: true, completion: nil)
+        
+        
+        
+        
+        
     }
+    
+    
+
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
