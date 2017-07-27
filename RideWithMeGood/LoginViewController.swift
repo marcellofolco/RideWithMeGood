@@ -57,6 +57,9 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
         view.addSubview(googleButton)
         
         GIDSignIn.sharedInstance().uiDelegate = self
+        
+        GIDSignIn.sharedInstance().delegate = self
+        
         GIDSignIn.sharedInstance().signInSilently()
         
     }
