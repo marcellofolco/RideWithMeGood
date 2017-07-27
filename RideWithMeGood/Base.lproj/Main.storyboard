@@ -14,7 +14,7 @@
         <!--Login View Controller-->
         <scene sceneID="kSK-Gr-SGx">
             <objects>
-                <viewController id="6O7-dv-TBC" customClass="LoginViewController" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="6O7-dv-TBC" customClass="LoginViewController" customModule="RideWithMeGood" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XUA-sP-ekA"/>
                         <viewControllerLayoutGuide type="bottom" id="H8a-tW-W9Y"/>
@@ -68,7 +68,7 @@
                                                     <action selector="btnLogin:" destination="6O7-dv-TBC" eventType="touchUpInside" id="7p0-IE-8y0"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9DW-To-IwS">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9DW-To-IwS">
                                                 <rect key="frame" x="68" y="600" width="58" height="32"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="14"/>
                                                 <state key="normal" title="Sign Up.">
@@ -80,7 +80,7 @@
                                                     </segue>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxS-7s-twn">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vxS-7s-twn">
                                                 <rect key="frame" x="203" y="600" width="114" height="32"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
                                                 <state key="normal" title="Forgot Password?">
@@ -97,6 +97,7 @@
                                         <constraints>
                                             <constraint firstItem="28m-Lh-qHy" firstAttribute="leading" secondItem="ZNA-OG-jPB" secondAttribute="leading" constant="51" id="0IM-IV-kno"/>
                                             <constraint firstAttribute="trailing" secondItem="28m-Lh-qHy" secondAttribute="trailing" constant="51" id="3S1-G5-H2P"/>
+                                            <constraint firstItem="vxS-7s-twn" firstAttribute="top" secondItem="yJT-SA-ZoP" secondAttribute="bottom" constant="85" id="5Ly-TP-n84"/>
                                             <constraint firstAttribute="trailing" secondItem="olq-9j-FxI" secondAttribute="trailing" id="8Ja-vd-2IJ"/>
                                             <constraint firstItem="vxS-7s-twn" firstAttribute="centerX" secondItem="ZNA-OG-jPB" secondAttribute="centerX" constant="72.5" id="CbS-2X-rNd"/>
                                             <constraint firstItem="tr3-iM-0Ya" firstAttribute="trailing" secondItem="2nr-v0-82o" secondAttribute="trailing" id="DRU-I9-wht"/>
@@ -110,6 +111,7 @@
                                             <constraint firstItem="olq-9j-FxI" firstAttribute="top" secondItem="28m-Lh-qHy" secondAttribute="bottom" constant="-33" id="Z15-ZW-YWo"/>
                                             <constraint firstItem="yJT-SA-ZoP" firstAttribute="top" secondItem="tr3-iM-0Ya" secondAttribute="bottom" constant="8" id="fIy-uD-e4G"/>
                                             <constraint firstItem="tr3-iM-0Ya" firstAttribute="leading" secondItem="2nr-v0-82o" secondAttribute="leading" id="qsa-Dw-ihR"/>
+                                            <constraint firstItem="9DW-To-IwS" firstAttribute="top" secondItem="yJT-SA-ZoP" secondAttribute="bottom" constant="85" id="reE-fq-1sB"/>
                                             <constraint firstItem="2nr-v0-82o" firstAttribute="centerX" secondItem="ZNA-OG-jPB" secondAttribute="centerX" id="w8F-SI-nEa"/>
                                         </constraints>
                                     </view>

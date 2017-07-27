@@ -52,7 +52,7 @@ class ProfileViewController: UIViewController {
         
         let tbvc = tabBarController as! TabBarViewController
         
-        if let accessToken = FBSDKAccessToken.current() {
+       /* if let accessToken = FBSDKAccessToken.current() {
             
             self.userPr1 = tbvc.user1
         } else if(Auth.auth().currentUser != nil){
@@ -61,7 +61,9 @@ class ProfileViewController: UIViewController {
             
             
             
-        }
+        }*/
+        
+        self.userPr1 = tbvc.user1
 
     }
     
