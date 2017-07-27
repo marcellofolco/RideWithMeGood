@@ -2,7 +2,7 @@
 //  ProfileViewController.swift
 //  RideWithMeGood
 //
-//  Created by User on 2017-07-18.
+//  Created by Martin Nadeau on 2017-07-18.
 //  Copyright © 2017 Marcello Folco. All rights reserved.
 //
 

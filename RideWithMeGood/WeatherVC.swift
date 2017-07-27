@@ -2,7 +2,7 @@
 //  WeatherVC.swift
 //  RideWithMeGood
 //
-//  Created by Marcello Folco on 2017-07-17.
+//  Created by Martin Nadeau on 2017-07-17.
 //  Copyright © 2017 Marcello Folco. All rights reserved.
 //
 
@@ -18,13 +18,15 @@ class WeatherVC: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var degreeLbl: UILabel!
     @IBOutlet weak var feelslikesLbl: UILabel!
     @IBOutlet weak var flLbl: UILabel!
-    @IBOutlet weak var windspeedLbl: UILabel!
-    @IBOutlet weak var wdsLbl: UILabel!
+    @IBOutlet weak var flcLbl: UILabel!
+    @IBOutlet weak var windLbl: UILabel!
+    @IBOutlet weak var wdLbl: UILabel!
+    @IBOutlet weak var wdkLbl: UILabel!
     
     
     @IBOutlet weak var imgView: UIImageView!
     
-    var wind: Int!
+    var wind: Double!
     var feelslike: Int!
     var degree: Int!
     var condition: String!
@@ -36,6 +38,7 @@ class WeatherVC: UIViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
         
         searchBar.delegate = self
     }
@@ -63,7 +66,7 @@ class WeatherVC: UIViewController, UISearchBarDelegate {
                         if let feels = current["feelslike_c"] as? Int {
                             self.feelslike = feels
                         }
-                        if let windspeed = current["wind_kph"] as? Int {
+                        if let windspeed = current["wind_kph"] as? Double {
                             self.wind = windspeed
                         }
                     }
@@ -80,25 +83,29 @@ class WeatherVC: UIViewController, UISearchBarDelegate {
                             self.degreeLbl.isHidden = false
                             self.feelslikesLbl.isHidden = false
                             self.flLbl.isHidden = false
+                            self.flcLbl.isHidden = false
                             self.conditionLbl.isHidden = false
-                            self.windspeedLbl.isHidden = false
-                            self.wdsLbl.isHidden = false
+                            self.windLbl.isHidden = false
+                            self.wdLbl.isHidden = false
+                            self.wdkLbl.isHidden = false
                             self.imgView.isHidden = false
                             
                             self.degreeLbl.text = "\(self.degree.description)°"
-                            self.feelslikesLbl.text = "\(self.feelslike.description)"
-                            self.wdsLbl.text = "\(self.wdsLbl.description)"
+                            self.flLbl.text = "\(self.feelslike.description)"
+                            self.wdLbl.text = "\(self.wind.description)"
                             self.cityLbl.text = self.city
                             self.conditionLbl.text = self.condition
                             self.imgView.downloadImage(from: self.imgURL!)
                         }else {
                             
                             self.degreeLbl.isHidden = true
-                            self.flLbl.isHidden = true
                             self.feelslikesLbl.isHidden = true
+                            self.flLbl.isHidden = true
+                            self.flcLbl.isHidden = true
                             self.conditionLbl.isHidden = true
-                            self.windspeedLbl.isHidden = true
-                            self.wdsLbl.isHidden = true
+                            self.windLbl.isHidden = true
+                            self.wdLbl.isHidden = true
+                            self.wdkLbl.isHidden = true
                             self.imgView.isHidden = true
                             self.cityLbl.text = "No matching city found"
                             self.exists = true

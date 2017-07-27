@@ -1,9 +1,9 @@
 //
 //  PasswordRecoveryViewController.swift
-//  
+//  RideWithMeGood
 //
-//  Created by Marcello Folco on 2017-07-12.
-//
+//  Created by Martin Nadeau on 2017-07-12.
+//  Copyright © 2017 Marcello Folco. All rights reserved.
 //
 
 import UIKit
