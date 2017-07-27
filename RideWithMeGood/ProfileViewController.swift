@@ -72,7 +72,7 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(animated)
         
         
-        
+        /*
         if let accessToken1 = FBSDKAccessToken.current() {
             
             self.usrLbl.text = userPr1.first_Name()+" "+userPr1.last_Name()
@@ -96,7 +96,21 @@ class ProfileViewController: UIViewController {
             
             //print(userPr2.currentUser())
             
-        }
+        }*/
+        
+        
+        
+        
+        self.usrLbl.text = userPr1.first_Name()+" "+userPr1.last_Name()
+        
+        self.cityLbl.text = userPr1.city
+        
+        self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string: userPr1.picture)! as URL)! as Data)
+        
+        self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
+        
+        self.imageView.clipsToBounds = true;
+        
         
         
     }

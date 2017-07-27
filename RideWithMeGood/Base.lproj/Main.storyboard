@@ -530,7 +530,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Full name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qx2-WB-EBI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Full name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qx2-WB-EBI">
                                 <rect key="frame" x="128" y="107" width="74" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -543,9 +543,8 @@
                                     <constraint firstAttribute="height" constant="128" id="yzO-8F-JTi"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Dl-Mb-cCQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Dl-Mb-cCQ">
                                 <rect key="frame" x="128" y="147" width="74" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -563,7 +562,11 @@
                         <constraints>
                             <constraint firstItem="XqX-Lr-APT" firstAttribute="top" secondItem="7t9-0w-lhL" secondAttribute="top" constant="124" id="A5d-8V-irY"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XqX-Lr-APT" secondAttribute="trailing" constant="-9" id="LMH-8w-8Bl"/>
+                            <constraint firstItem="Qx2-WB-EBI" firstAttribute="trailing" secondItem="1Dl-Mb-cCQ" secondAttribute="trailing" id="PTd-Lm-ctg"/>
                             <constraint firstItem="XqX-Lr-APT" firstAttribute="leading" secondItem="Qx2-WB-EBI" secondAttribute="trailing" constant="33" id="VZK-qf-7TU"/>
+                            <constraint firstItem="Qx2-WB-EBI" firstAttribute="leading" secondItem="1Dl-Mb-cCQ" secondAttribute="leading" id="XsP-OL-8hg"/>
+                            <constraint firstItem="1Dl-Mb-cCQ" firstAttribute="top" secondItem="Qx2-WB-EBI" secondAttribute="bottom" constant="19" id="quD-Ry-cln"/>
+                            <constraint firstItem="Qx2-WB-EBI" firstAttribute="top" secondItem="fLS-nX-mj6" secondAttribute="bottom" constant="87" id="zA4-11-bJY"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" tag="2" title="Profile" image="Profile Tab Icon" id="Cln-db-AGx"/>
