@@ -150,17 +150,9 @@
 				CE27C7C71F1E7C8000464692 /* ProfileViewController.swift */,
 				A4DD416C1F1D088E00316C2E /* MapViewController.swift */,
 				A4DD41741F1D547500316C2E /* MessagesVC.swift */,
-				B7A8ED931F21917A00B4C2DA /* weatherView */,
-			);
-			name = view;
-			sourceTree = "<group>";
-		};
-		B7A8ED931F21917A00B4C2DA /* weatherView */ = {
-			isa = PBXGroup;
-			children = (
 				A4DD41721F1D51A800316C2E /* WeatherVC.swift */,
 			);
-			name = weatherView;
+			name = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
