@@ -24,6 +24,9 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     var ref: DatabaseReference!
     
     
+    var userSignUp:User = User()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -141,9 +144,22 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
                                 
                                 self.ref.child("users").child(user.uid).setValue(userInfo)
                                 
-                                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarVC")
+                                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarVC") as! TabBarViewController
                                 
                                 self.present(vc, animated: true, completion: nil)
+                                
+                                
+                                self.userSignUp.setFirstName(firstName: self.firstNameTF.text!)
+                                
+                                self.userSignUp.setLasttName(lastName: self.lastNameTF.text!)
+                                
+                                self.userSignUp.setEmail(email: self.emailTF.text!)
+                                
+                                self.userSignUp.setPicture(picture:url.absoluteString)
+                                
+                                
+                                vc.user3 = self.userSignUp
+                                
                                 
                             }
                         
