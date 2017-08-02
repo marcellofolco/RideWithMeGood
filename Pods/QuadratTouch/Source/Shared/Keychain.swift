@@ -18,11 +18,9 @@ public let QuadratKeychainOSSatusErrorDomain = "QuadratKeychainOSSatusErrorDomai
 
 class Keychain {
     
-    /** Logger to log all errors. */
-    var logger : Logger?
+    var logger: Logger?
     
-    /** Query to get keychain items. */
-    private let keychainQuery: [String:AnyObject]
+    fileprivate let keychainQuery: [String:AnyObject]
     
     init(configuration: Configuration) {
         #if os(iOS)
@@ -33,15 +31,15 @@ class Keychain {
         
         var accountAttribute: String
         if let userTag = configuration.userTag {
-            accountAttribute = configuration.client.id + "_" + userTag
+            accountAttribute = configuration.client.identifier + "_" + userTag
         } else {
-            accountAttribute = configuration.client.id
+            accountAttribute = configuration.client.identifier
         }
         keychainQuery = [
             kSecClass           as String  : kSecClassGenericPassword,
             kSecAttrAccessible  as String  : kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly,
-            kSecAttrService     as String  : serviceAttribute,
-            kSecAttrAccount     as String  : accountAttribute
+            kSecAttrService     as String  : serviceAttribute as AnyObject,
+            kSecAttrAccount     as String  : accountAttribute as AnyObject
         ]
     }
     
@@ -55,20 +53,20 @@ class Keychain {
             https://devforums.apple.com/message/1070614#1070614
         */
         var dataTypeRef: AnyObject? = nil
-        let status = withUnsafeMutablePointer(&dataTypeRef) {cfPointer -> OSStatus in
-            SecItemCopyMatching(query, UnsafeMutablePointer(cfPointer))
+        let status = withUnsafeMutablePointer(to: &dataTypeRef) {cfPointer -> OSStatus in
+            SecItemCopyMatching(query as CFDictionary, UnsafeMutablePointer(cfPointer))
         }
         var accessToken: String? = nil
         if status == errSecSuccess {
-            if let retrievedData = dataTypeRef as? NSData {
-                if retrievedData.length != 0 {
-                    accessToken = NSString(data: retrievedData, encoding: NSUTF8StringEncoding) as? String
+            if let retrievedData = dataTypeRef as? Data {
+                if retrievedData.count != 0 {
+                    accessToken = NSString(data: retrievedData, encoding: String.Encoding.utf8.rawValue) as? String
                 }
             }
         }
         if status != errSecSuccess && status != errSecItemNotFound {
             let error = errorWithStatus(status)
-            logger?.logError(error, withMessage: "Keychain can't read access token.")
+            self.logger?.logError(error, withMessage: "Keychain can't read access token.")
             throw error
         }
         return accessToken
@@ -76,15 +74,15 @@ class Keychain {
     
     func deleteAccessToken() throws {
         let query = keychainQuery
-        let status = SecItemDelete(query)
+        let status = SecItemDelete(query as CFDictionary)
         if status != errSecSuccess && status != errSecItemNotFound {
             let error = errorWithStatus(status)
-            logger?.logError(error, withMessage: "Keychain can't delete access token .")
+            self.logger?.logError(error, withMessage: "Keychain can't delete access token .")
             throw error
         }
     }
     
-    func saveAccessToken(accessToken: String) throws {
+    func saveAccessToken(_ accessToken: String) throws {
         do {
             if let _ = try self.accessToken() {
                 try deleteAccessToken()
@@ -93,17 +91,17 @@ class Keychain {
             
         }
         var query = keychainQuery
-        let accessTokenData = accessToken.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
-        query[kSecValueData as String] =  accessTokenData
-        let status = SecItemAdd(query, nil)
+        let accessTokenData = accessToken.data(using: String.Encoding.utf8, allowLossyConversion: false)
+        query[kSecValueData as String] =  accessTokenData as AnyObject?
+        let status = SecItemAdd(query as CFDictionary, nil)
         if status != errSecSuccess {
             let error = errorWithStatus(status)
-            logger?.logError(error, withMessage: "Keychain can't add access token.")
+            self.logger?.logError(error, withMessage: "Keychain can't add access token.")
             throw error
         }
     }
     
-    private func errorWithStatus(status: OSStatus) -> NSError {
+    fileprivate func errorWithStatus(_ status: OSStatus) -> NSError {
         return NSError(domain: QuadratKeychainOSSatusErrorDomain, code: Int(status), userInfo: nil)
     }
     

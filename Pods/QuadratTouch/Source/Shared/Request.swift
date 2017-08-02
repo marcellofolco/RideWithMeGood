@@ -9,29 +9,29 @@
 import Foundation
 
 class Request {
-    /** Request parameters. */
-    let parameters          : Parameters?
+    
+    let parameters: Parameters?
     
     /** Endpoint path. */
-    let path                : String
+    let path: String
     
-    /** HTTP method. POST or GET. */
-    let HTTPMethod          : String
+    /** Can be POST or GET. */
+    let HTTPMethod: String
     
-    /** Sessian wise parameters from configuration. */
-    let sessionParameters   : Parameters
+    /** Session wise parameters from configuration. */
+    let sessionParameters: Parameters
     
     /** Should be like this "https://api.foursquare.com/v2". Specified in `Configuration` */
-    let baseURL             : NSURL
+    let baseURL: URL
     
     /** The timeout interval in seconds. */
-    var timeoutInterval     : NSTimeInterval = 60
+    var timeoutInterval: TimeInterval = 60
     
     /** Optionally pass in a preformatted query string to append after all other params are added **/
     var preformattedQueryString: String?
     
-    init(baseURL:NSURL, path: String, parameters: Parameters?,
-        sessionParameters:Parameters, HTTPMethod: String, preformattedQueryString: String? = nil) {
+    init(baseURL: URL, path: String, parameters: Parameters?,
+        sessionParameters: Parameters, HTTPMethod: String, preformattedQueryString: String? = nil) {
             
             self.baseURL = baseURL
             self.parameters = parameters
@@ -41,16 +41,17 @@ class Request {
             self.preformattedQueryString = preformattedQueryString
     }
     
-    func URLRequest() -> NSURLRequest {
+    func URLRequest() -> Foundation.URLRequest {
         // if multi,
         var allParameters = self.sessionParameters
-        if parameters != nil {
-            allParameters += parameters!
+        if let parameters = self.parameters {
+            allParameters += parameters
         }
-        let URL = self.baseURL.URLByAppendingPathComponent(self.path)
-        let requestURL = Parameter.buildURL(URL, parameters: allParameters, preformattedQueryString: preformattedQueryString)
-        let request = NSMutableURLRequest(URL: requestURL)
-        request.HTTPMethod = HTTPMethod
-        return request
+        let URL = self.baseURL.appendingPathComponent(self.path)
+        let requestURL = Parameter.buildURL(URL, parameters: allParameters,
+            preformattedQueryString: preformattedQueryString)
+        let request = NSMutableURLRequest(url: requestURL)
+        request.httpMethod = HTTPMethod
+        return request as URLRequest
     }
 }
