@@ -16,72 +16,72 @@ import UIKit
 struct DataCacheConfiguration {
     
     /** Time to keep a data in cache in seconds. Default is 1 week.  */
-    private let maxCacheAge         = (60 * 60 * 24 * 7) as NSTimeInterval
+    fileprivate let maxCacheAge = (60 * 60 * 24 * 7) as TimeInterval
     
     /** The maximum size for disk cache in bytes. Default is 10MB. */
-    private let maxDiskCacheSize    = (1024 * 1024 * 10) as UInt
+    fileprivate let maxDiskCacheSize = (1024 * 1024 * 10) as UInt
     
     /** The maximum size for memory cache in bytes. Default is 10MB. */
-    private let maxMemoryCacheSize  = (1024 * 1024 * 10) as UInt
+    fileprivate let maxMemoryCacheSize = (1024 * 1024 * 10) as UInt
 }
 
 /** The queue for I/O operations. Shared between several instances. */
-private let privateQueue    = NSOperationQueue()
+private let privateQueue    = OperationQueue()
 
 /** Responsible for caching data on disk and memory. Thread safe. */
 class DataCache {
     
     /** Logger to log all errors. */
-    var logger : Logger?
+    var logger: Logger?
     
     /** The URL to directory where we put all the files. */
-    private let directoryURL: NSURL
+    fileprivate let directoryURL: URL
     
     /** In memory cache for NSData. */
-    private let cache           = NSCache()
+    fileprivate let cache = NSCache<NSString, NSData>()
     
     /** Obsever objects from NSNotificationCenter. */
-    private var observers       = [AnyObject]()
+    fileprivate var observers = [AnyObject]()
     
     /** The file manager to use for all file operations. */
-    private let fileManager     = NSFileManager.defaultManager()
+    fileprivate let fileManager = FileManager.default
     
     /** The configuration for cache. */
-    private let cacheConfiguration  = DataCacheConfiguration()
+    fileprivate let cacheConfiguration  = DataCacheConfiguration()
     
     init(name: String?) {
-        cache.totalCostLimit = Int(cacheConfiguration.maxMemoryCacheSize);
+        cache.totalCostLimit = Int(cacheConfiguration.maxMemoryCacheSize)
         let directoryName = "net.foursquare.quadrat"
         let subdirectiryName = (name != nil) ? ( "Cache" + name! ) : "DefaultCache"
-        let cacheURL: NSURL?
+        let cacheURL: URL?
         do {
-            cacheURL = try fileManager.URLForDirectory(.CachesDirectory, inDomain: .UserDomainMask,
-                        appropriateForURL: nil, create: true)
+            cacheURL = try fileManager.url(for: .cachesDirectory, in: .userDomainMask,
+                        appropriateFor: nil, create: true)
         } catch _ {
             fatalError("Can't get access to cache directory")
         }
-        self.directoryURL = cacheURL!.URLByAppendingPathComponent("\(directoryName)/DataCache/\(subdirectiryName)")
+        self.directoryURL = cacheURL!.appendingPathComponent("\(directoryName)/DataCache/\(subdirectiryName)")
         privateQueue.maxConcurrentOperationCount = 1
         createBaseDirectory()
         subscribeForNotifications()
     }
     
     deinit {
-        for observer in observers {
-            NSNotificationCenter.defaultCenter().removeObserver(observer)
+        self.observers.forEach {
+            NotificationCenter.default.removeObserver($0)
         }
     }
     
     /** Returns data for key. */
-    func dataForKey(key: String) -> NSData? {
-        var result: NSData?
-        privateQueue.addOperationWithBlock {
-            result = self.cache.objectForKey(key) as? NSData
+    func dataForKey(_ key: String) -> Data? {
+        var result: Data?
+        privateQueue.addOperation {
+            result = self.cache.object(forKey: key as NSString) as? Data
             if result == nil {
-                let targetURL = self.directoryURL.URLByAppendingPathComponent(key)
-                result = NSData(contentsOfURL: targetURL)
-                if result != nil {
-                    self.cache.setObject(result!, forKey: key, cost: result!.length)
+                let targetURL = self.directoryURL.appendingPathComponent(key)
+                result = try? Data(contentsOf: targetURL)
+                if let result = result {
+                    self.cache.setObject(result as NSData, forKey: key as NSString, cost: result.count)
                 }
             }
         }
@@ -90,11 +90,11 @@ class DataCache {
     }
     
     /** Copies file into cache. */
-    func addFileAtURL(URL: NSURL, withKey key: String) {
-        privateQueue.addOperationWithBlock { () -> Void in
-            let targetURL = self.directoryURL.URLByAppendingPathComponent(key)
+    func addFileAtURL(_ URL: Foundation.URL, withKey key: String) {
+        privateQueue.addOperation { () -> Void in
+            let targetURL = self.directoryURL.appendingPathComponent(key)
             do {
-                try self.fileManager.copyItemAtURL(URL, toURL: targetURL)
+                try self.fileManager.copyItem(at: URL, to: targetURL)
             } catch let error as NSError {
                 self.logger?.logError(error, withMessage: "Cache can't copy file into cache directory.")
             } catch {
@@ -104,11 +104,11 @@ class DataCache {
     }
     
     /** Saves data into cache. */
-    func addData(data: NSData, withKey key: String) {
-        privateQueue.addOperationWithBlock { () -> Void in
-            let targetURL = self.directoryURL.URLByAppendingPathComponent(key)
+    func addData(_ data: Data, withKey key: String) {
+        privateQueue.addOperation { () -> Void in
+            let targetURL = self.directoryURL.appendingPathComponent(key)
             do {
-                try data.writeToURL(targetURL, options: .DataWritingAtomic)
+                try data.write(to: targetURL, options: .atomic)
             } catch let error as NSError {
                 self.logger?.logError(error, withMessage: "Cache can't save file into cache directory.")
             } catch {
@@ -117,31 +117,31 @@ class DataCache {
     }
     
     /** Subcribes for iOS specific notifications to perform cache cleaning. */
-    private func subscribeForNotifications() {
+    fileprivate func subscribeForNotifications() {
         #if os(iOS)
             
-            let center = NSNotificationCenter.defaultCenter()
-            let didEnterBackground = UIApplicationDidEnterBackgroundNotification
-            let firstObserver = center.addObserverForName(didEnterBackground, object: nil, queue: nil) {
+            let center = NotificationCenter.default
+            let didEnterBackground = NSNotification.Name.UIApplicationDidEnterBackground
+            let firstObserver = center.addObserver(forName: didEnterBackground, object: nil, queue: nil) {
                 [weak self] (notification) -> Void in
                 self?.cleanupCache()
                 self?.cache.removeAllObjects()
             }
-            observers.append(firstObserver)
+            self.observers.append(firstObserver)
             
-            let didReceiveMemoryWaring = UIApplicationDidReceiveMemoryWarningNotification
-            let secondObserver = center.addObserverForName(didReceiveMemoryWaring, object: nil, queue: nil) {
+            let didReceiveMemoryWaring = NSNotification.Name.UIApplicationDidReceiveMemoryWarning
+            let secondObserver = center.addObserver(forName: didReceiveMemoryWaring, object: nil, queue: nil) {
                 [weak self] (notification) -> Void in
                 self?.cache.removeAllObjects()
             }
-            observers.append(secondObserver)
+            self.observers.append(secondObserver)
         #endif
     }
     
     /** Creates base directory. */
-    private func createBaseDirectory() {
+    fileprivate func createBaseDirectory() {
         do {
-            try fileManager.createDirectoryAtURL(directoryURL,
+            try fileManager.createDirectory(at: directoryURL,
                         withIntermediateDirectories: true, attributes: nil)
         } catch let error as NSError {
             self.logger?.logError(error, withMessage: "Cache can't create base directory.")
@@ -150,10 +150,10 @@ class DataCache {
     
     /** Removes all cached files. */
     func clearCache() {
-        privateQueue.addOperationWithBlock {
+        privateQueue.addOperation {
             self.cache.removeAllObjects()
             do {
-                try self.fileManager.removeItemAtURL(self.directoryURL)
+                try self.fileManager.removeItem(at: self.directoryURL)
                 self.createBaseDirectory()
             } catch let error as NSError {
                 self.logger?.logError(error, withMessage: "Cache can't remove base directory.")
@@ -163,79 +163,74 @@ class DataCache {
     }
     
     /** Removes expired files. In addition removes 1/4 of files if total size exceeds `maxDiskCacheSize`. */
-    private func cleanupCache() {
-        privateQueue.addOperationWithBlock {
-            let expirationDate = NSDate(timeIntervalSinceNow: -self.cacheConfiguration.maxCacheAge)
-            let properties = [NSURLContentModificationDateKey, NSURLTotalFileAllocatedSizeKey]
-            
-            var fileURLs = [NSURL]()
+    fileprivate func cleanupCache() {
+        privateQueue.addOperation {
+            let fileURLs = self.getFilesToRemove()
+            fileURLs.forEach {
+                _ = try? self.fileManager.removeItem(at: $0)
+            }
+        }
+    }
+    
+    fileprivate func getFilesToRemove() -> [URL] {
+        let expirationDate = Date(timeIntervalSinceNow: -self.cacheConfiguration.maxCacheAge)
+        let properties = Set([URLResourceKey.contentModificationDateKey, URLResourceKey.totalFileAllocatedSizeKey])
+        var cacheSize: UInt = 0
+        var expiredFiles = [URL]()
+        var validFiles = [URL]()
+        let fileURLs = self.getCachedFileURLs()
+        /** Searches for expired files and calculates total size. */
+        fileURLs.forEach {
+            (aFileURL) -> () in
+            let values = try? aFileURL.resourceValues(forKeys: properties)
+            if let values = values, let modificationDate = values.contentModificationDate {
+                if (modificationDate as NSDate).laterDate(expirationDate) == modificationDate {
+                    validFiles.append(aFileURL)
+                    if let fileSize = values.totalFileAllocatedSize {
+                        cacheSize += UInt(fileSize)
+                    }
+                } else {
+                    expiredFiles.append(aFileURL)
+                }
+            }
+        }
+        
+        if cacheSize > self.cacheConfiguration.maxDiskCacheSize {
+            validFiles = self.sortFileURLByModificationDate(validFiles)
+            /** Let's just remove 1/4 of all files. */
+            validFiles.removeSubrange(0 ..< (validFiles.count / 4))
+            expiredFiles += validFiles
+        }
+        return expiredFiles
+    }
+    
+    fileprivate func getCachedFileURLs() -> [URL] {
+        let properties = [URLResourceKey.contentModificationDateKey, URLResourceKey.totalFileAllocatedSizeKey]
+        do {
+            return try self.fileManager.contentsOfDirectory(at: self.directoryURL,
+                includingPropertiesForKeys: properties, options: .skipsHiddenFiles)
+        } catch let error as NSError {
+            self.logger?.logError(error, withMessage: "Cache can't get properties of files in base directory.")
+            return [URL]()
+        }
+    }
+    
+    fileprivate func sortFileURLByModificationDate(_ urls: [URL]) -> [URL] {
+        return urls.sorted {
+            (url1, url2) -> Bool in
+            let dateKey = Set<URLResourceKey>([URLResourceKey.contentModificationDateKey])
             do {
-                fileURLs = try self.fileManager.contentsOfDirectoryAtURL(self.directoryURL,
-                    includingPropertiesForKeys: properties, options: .SkipsHiddenFiles)
-            } catch let error as NSError {
-                self.logger?.logError(error, withMessage: "Cache can't get properties of files in base directory.")
-                return
+                let values1 = try url1.resourceValues(forKeys: dateKey)
+                let values2 = try url2.resourceValues(forKeys: dateKey)
+                if let date1 = values1.contentModificationDate {
+                    if let date2 = values2.contentModificationDate {
+                        return date1.compare(date2) == .orderedAscending
+                    }
+                }
             } catch {
-                return
+                return false
             }
-            
-            var cacheSize: UInt = 0
-            var expiredFiles = [NSURL]()
-            var validFiles = [NSURL]()
-            
-            /** Searching for expired files and calculation total size. */
-            for aFileURL in fileURLs {
-                let values: [String : AnyObject]
-                do {
-                    values = try aFileURL.resourceValuesForKeys(properties)
-                } catch {
-                    continue
-                }
-
-                if let modificationDate = values[NSURLContentModificationDateKey] as? NSDate {
-                    if modificationDate.laterDate(expirationDate).isEqualToDate(modificationDate) {
-                        validFiles.append(aFileURL)
-                        if let fileSize = values[NSURLTotalFileAllocatedSizeKey] as? UInt {
-                            cacheSize += fileSize
-                        }
-                    } else {
-                        expiredFiles.append(aFileURL)
-                    }
-                }
-            }
-
-            if cacheSize > self.cacheConfiguration.maxDiskCacheSize {
-                /** Sorting files by modification date. From oldest to newest. */
-                validFiles.sortInPlace {
-                    (url1: NSURL, url2: NSURL) -> Bool in
-                    let dateKey = [NSURLContentModificationDateKey]
-                    do {
-                        let values1 = try url1.resourceValuesForKeys(dateKey) as? [String: NSDate]
-                        let values2 = try url2.resourceValuesForKeys(dateKey) as? [String: NSDate]
-                        if let date1 = values1?[NSURLContentModificationDateKey] {
-                            if let date2 = values2?[NSURLContentModificationDateKey] {
-                                return date1.compare(date2) == .OrderedAscending
-                            }
-                        }
-                    } catch {
-                      return false
-                    }
-                    return false
-                }
-                
-                /** Let's just remove 1/4 of all files. */
-                validFiles.removeRange(Range(start: 0, end: validFiles.count / 4))
-                expiredFiles += validFiles
-            }
-
-            for URL in expiredFiles {
-                do {
-                    try self.fileManager.removeItemAtURL(URL as NSURL)
-                } catch let error as NSError {
-                     self.logger?.logError(error, withMessage: "Cache can't remove file.")
-                } catch {
-                }
-            }
+            return false
         }
     }
     

@@ -18,57 +18,59 @@ public let QuadratResponseErrorDetailKey = "errorDetail"
     Read `Responses & Errors`:
     https://developer.foursquare.com/overview/responses
 */
-public class Result: CustomStringConvertible {
+open class Result: CustomStringConvertible {
     
     /** 
         HTTP response status code.
     */
-    public var HTTPSTatusCode   : Int?
+    open var HTTPSTatusCode: Int?
     
     /** 
         HTTP response headers.
         Can contain `RateLimit-Remaining` and `X-RateLimit-Limit`.
         Read about `Rate Limits` <https://developer.foursquare.com/overview/ratelimits>.
     */
-    public var HTTPHeaders      : [NSObject:AnyObject]?
+    open var HTTPHeaders: [AnyHashable: Any]?
     
     /** 
         The URL which has been requested. 
     */
-    public var URL              : NSURL?
+    open var URL: Foundation.URL?
     
     
     /*
         Can contain error with following error domains:
-            QuadratResponseErrorDomain  - in case of error in `meta` parameter of Foursquare response. Error doesn't have localized description, but has `QuadratResponseErrorTypeKey` and `QuadratResponseErrorDetailKey` parameters in `userUnfo`.
+            QuadratResponseErrorDomain  - in case of error in `meta` parameter of Foursquare response. 
+                Error doesn't have localized description, but has `QuadratResponseErrorTypeKey`
+                and `QuadratResponseErrorDetailKey` parameters in `userUnfo`.
             NSURLErrorDomain            - in case of some networking problem.
             NSCocoaErrorDomain          - in case of error during JSON parsing.
     */
-    public var error            : NSError?
+    open var error: NSError?
     
     /** 
         A response. Extracted from JSON `response` field.
         Can be empty in case of error or `multi` request. 
         If you are doung `multi` request use `subresponses` property
     */
-    public var response         : [String:AnyObject]?
+    open var response: [String:AnyObject]?
     
     /** 
         Responses returned from `multi` endpoint. Subresponses never have HTTP headers and status code.
         Extracted from JSON `responses` field.
     */
-    public var results          : [Result]?
+    open var results: [Result]?
     
     /** 
         A notifications. Extracted from JSON `notifications` field.
     */
-    public var notifications    : [[String:AnyObject]]?
+    open var notifications: [[String:AnyObject]]?
     
     init() {
         
     }
     
-    public var description: String {
+    open var description: String {
         return "Status code: \(HTTPSTatusCode)\nResponse: \(response)\nError: \(error)"
     }
     
@@ -78,53 +80,50 @@ public class Result: CustomStringConvertible {
 /** Response creation from HTTP response. */
 extension Result {
     
-    class func createResult(HTTPResponse: NSHTTPURLResponse?, JSON: [String:AnyObject]?, error: NSError? ) -> Result {
+    class func createResult(_ HTTPResponse: HTTPURLResponse?, JSON: [String:AnyObject]?, error: NSError? ) -> Result {
         let result = Result()
-        if HTTPResponse != nil {
-            result.HTTPHeaders     = HTTPResponse!.allHeaderFields
-            result.HTTPSTatusCode  = HTTPResponse!.statusCode
-            result.URL             = HTTPResponse!.URL
-        }
-        
-        if JSON != nil {
-            if let meta = JSON!["meta"] as? [String:AnyObject] {
-                if let code = meta["code"] as? Int {
-                    if code < 200 || code > 299 {
-                        result.error = NSError(domain: QuadratResponseErrorDomain, code: code, userInfo: meta)
-                    }
-                }
-            }
-            result.notifications   = JSON!["notifications"]   as? [[String:AnyObject]]
-            result.response        = JSON!["response"]        as? [String:AnyObject]
-            
-            if result.response != nil {
-                if let responses = result.response!["responses"] as? [[String:AnyObject]] {
-                    var subResults = [Result]()
-                    for aJSONResponse in responses {
-                        let quatratResponse = Result.createResult(nil, JSON: aJSONResponse, error: nil)
-                        subResults.append(quatratResponse)
-                    }
-                    result.results = subResults
-                    result.response = nil
-                }
-            }
-        }
-        
-        if error != nil {
+        if let error = error {
             result.error = error
+            return result
         }
+        
+        if let HTTPResponse = HTTPResponse {
+            result.HTTPHeaders = HTTPResponse.allHeaderFields
+            result.HTTPSTatusCode = HTTPResponse.statusCode
+            result.URL = HTTPResponse.url
+        }
+        
+        if let JSON = JSON {
+            if let meta = JSON["meta"] as? [String:AnyObject], let code = meta["code"] as? Int,
+                code < 200 || code > 299 {
+                    result.error = NSError(domain: QuadratResponseErrorDomain, code: code, userInfo: meta)
+            }
+            result.notifications = JSON["notifications"] as? [[String:AnyObject]]
+            result.response = JSON["response"] as? [String:AnyObject]
+            
+            if let response = result.response, let responses = response["responses"] as? [[String:AnyObject]] {
+                var subResults = [Result]()
+                for aJSONResponse in responses {
+                    let quatratResponse = Result.createResult(nil, JSON: aJSONResponse, error: nil)
+                    subResults.append(quatratResponse)
+                }
+                result.results = subResults
+                result.response = nil
+            }
+        }
+
         return result
     }
     
-    class func resultFromURLSessionResponse(response:NSURLResponse?, data: NSData?, error: NSError?) -> Result {
-        let HTTPResponse = response as? NSHTTPURLResponse
+    class func resultFromURLSessionResponse(_ response: URLResponse?, data: Data?, error: NSError?) -> Result {
+        let HTTPResponse = response as? HTTPURLResponse
         var JSONResult: [String: AnyObject]?
         var JSONError = error
         
-        if data != nil && JSONError == nil && HTTPResponse?.MIMEType == "application/json" {
+        if let data = data, JSONError == nil && HTTPResponse?.mimeType == "application/json" {
             do {
-                JSONResult = try NSJSONSerialization.JSONObjectWithData(data!,
-                                options: NSJSONReadingOptions(rawValue: 0)) as? [String: AnyObject]
+                JSONResult = try JSONSerialization.jsonObject(with: data,
+                                options: JSONSerialization.ReadingOptions(rawValue: 0)) as? [String: AnyObject]
             } catch let error as NSError {
                 JSONError = error
             }
@@ -149,8 +148,8 @@ extension Result {
     
     /** Whether task has been cancelled or not. */
     public func isCancelled() -> Bool {
-        if self.error != nil {
-            return (self.error!.domain == NSURLErrorDomain  && self.error!.code == NSURLErrorCancelled)
+        if let error = self.error {
+            return (error.domain == NSURLErrorDomain  && error.code == NSURLErrorCancelled)
         }
         return false
     }

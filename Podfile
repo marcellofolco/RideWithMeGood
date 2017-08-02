@@ -17,7 +17,7 @@ target 'RideWithMeGood' do
   pod 'FBSDKLoginKit'
   pod 'GoogleSignIn'
   pod 'Mapbox-iOS-SDK', '~> 3.6'
-  pod 'QuadratTouch', '>= 1.0'
+  pod 'QuadratTouch', :git => 'https://github.com/Constantine-Fry/das-quadrat', :branch => 'fry-swift30'
   pod 'RealmSwift'
 
 
