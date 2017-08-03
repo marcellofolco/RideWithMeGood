@@ -122,7 +122,7 @@ class ProfileViewController: UIViewController {
         
         self.cityLbl.text = userPr1.city
         
-        self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string: userPr1.picture)! as URL)! as Data)
+//        self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string: userPr1.picture)! as URL)! as Data)
         
         self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
         
@@ -138,7 +138,7 @@ class ProfileViewController: UIViewController {
             
             if(!userPr2.picture.isEmpty){
             
-           //self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string:userPr2.picture)! as URL)! as Data)
+           self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string:userPr2.picture)! as URL)! as Data)
                 
                 
                // self.imageView.image = userPr2.picture
@@ -157,7 +157,7 @@ class ProfileViewController: UIViewController {
             
             self.cityLbl.text = self.userPr3.email
             
-            self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string: userPr3.picture)! as URL)! as Data)
+//            self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string: userPr3.picture)! as URL)! as Data)
             
             
             self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
