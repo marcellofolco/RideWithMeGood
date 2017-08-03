@@ -24,7 +24,7 @@ class MapViewController: UIViewController, UIBarPositioningDelegate, CLLocationM
     // @IBOutlet weak var map: MKMapView!
     
     var filters = ["Bike Shops", "Events", "Rides"]
-    var manager = CLLocationManager()
+    var manager: CLLocationManager?
     let distanceSpan:Double = 500
     
     override func viewDidLoad() {
@@ -35,12 +35,12 @@ class MapViewController: UIViewController, UIBarPositioningDelegate, CLLocationM
         
         filterPicker.isHidden = true
         
-        manager = CLLocationManager()
-        manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
-        manager.requestWhenInUseAuthorization()
-        manager.distanceFilter = 50
-        manager.startUpdatingLocation()
+        //manager = CLLocationManager()
+        //manager.delegate = self
+        //manager.desiredAccuracy = kCLLocationAccuracyBest
+        //manager.requestWhenInUseAuthorization()
+        //manager.distanceFilter = 50
+        //manager.startUpdatingLocation()
         
         mapView.delegate = self
         let point = MGLPointAnnotation()
@@ -52,6 +52,19 @@ class MapViewController: UIViewController, UIBarPositioningDelegate, CLLocationM
         
         infoRef.isHidden = true
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
+        if manager == nil {
+            manager = CLLocationManager()
+            
+            manager!.delegate = self
+            manager!.desiredAccuracy = kCLLocationAccuracyBestForNavigation
+            manager!.requestAlwaysAuthorization()
+            manager!.distanceFilter = 50
+            manager!.startUpdatingLocation()
+        }
     }
     
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
@@ -90,33 +103,9 @@ class MapViewController: UIViewController, UIBarPositioningDelegate, CLLocationM
         filterPicker.isHidden = false
     }
    
-    
-    /*func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        let userLocation:CLLocation = locations[0]
-        
-        let latitude:CLLocationDegrees = userLocation.coordinate.latitude
-        
-        let longitude:CLLocationDegrees = userLocation.coordinate.longitude
-        
-        let latDelta:CLLocationDegrees = 0.05
-        
-        let lonDelta:CLLocationDegrees = 0.05
-        
-        let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
-        
-        let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
-        
-        let region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
-        
-        //map.setRegion(region, animated: false)
-        
-        //let pin = MKPointAnnotation()
-        pin.coordinate.latitude = userLocation.coordinate.latitude
-        pin.coordinate.longitude = userLocation.coordinate.longitude
-        pin.title = "Your Movement Line"
-        //map.addAnnotation(pin)
-        
+    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
+        if let mapView = self.mapView {
+//            mapView.setRegion(region, animated: true)
+        }
     }
-    */
 }
