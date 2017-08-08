@@ -25,7 +25,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var usrLbl: UILabel!
     
     
-    @IBOutlet weak var cityLbl: UILabel!
+    
+    @IBOutlet weak var cityLbl: UITextField!
     
     
     @IBOutlet weak var imageView: UIImageView!
@@ -134,7 +135,7 @@ class ProfileViewController: UIViewController {
             
             self.usrLbl.text = userPr2.first_Name()+" "+userPr2.last_Name()
             
-            self.cityLbl.text = userPr2.email
+            //self.cityLbl.text = userPr2.email
             
             if(!userPr2.picture.isEmpty){
             
@@ -155,9 +156,9 @@ class ProfileViewController: UIViewController {
             
             self.usrLbl.text = self.userPr3.first_Name()+" "+self.userPr3.last_Name()
             
-            self.cityLbl.text = self.userPr3.email
+            //self.cityLbl.text = self.userPr3.email
             
-//            self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string: userPr3.picture)! as URL)! as Data)
+            self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string: userPr3.picture)! as URL)! as Data)
             
             
             self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
