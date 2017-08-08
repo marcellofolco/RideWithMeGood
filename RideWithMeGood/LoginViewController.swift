@@ -27,12 +27,31 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
     
     var userGG: User = User()
     
+    var userLogin:User = User()
+    
+    var userStorage: StorageReference!
+    var ref: DatabaseReference!
+    
+    var database: Database!
+    var storage: Storage!
+    
     
         
     override func viewDidLoad() {
         
         super.viewDidLoad()
         gifView.loadGif(name: "courier")
+        
+        
+        let storage = Storage.storage().reference(forURL: "gs://ridewithmegood.appspot.com")
+        
+        ref = Database.database().reference()
+        userStorage = storage.child("users")
+        
+         //let dbRef = Database.database.reference().child("users")
+        
+        //database = Database.database()
+        //storage = Storage.storage()
         
         
         
@@ -114,9 +133,15 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
             }
             
             if user != nil {
-                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarVC")
+                
+                
+                
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarVC") as! TabBarViewController
                 
                 self.present(vc, animated: true, completion: nil)
+                
+       
+                
             }
             
         })
@@ -136,10 +161,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
             return
             
         } else {
-            
-            //let  user = Auth.auth().currentUser
-            
-            //GIDSignIn.sharedInstance().currentUser.profile.familyName
             
             
             print("Successfully logged into Google", user)
@@ -162,17 +183,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
                 
             })
 
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             
             print(user.profile.email)
             
@@ -228,25 +238,12 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
             
             
             
-           // self.userGG = User(firstName: strFirst,lastName: strLast,email: strEmail,picture:picture)
-            
-            
-            
-            
             
             viewController.user2 = self.userGG
             
             
         }
         
-        
-        
-        
-        
-        /*  let userInfo = Auth.auth().currentUser?.providerData[(index as NSIndexPath).row]
-         cell?.textLabel?.text = userInfo?.providerID
-         // Provider-specific UID
-         cell?.detailTextLabel?.text = userInfo?.uid*/
         
         
     }
@@ -321,8 +318,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
             print("User is SUccessfully Logged in....")
             
             
-            
-            
             let accessToken = FBSDKAccessToken.current()
             
             let accessTokenString = accessToken?.tokenString!
@@ -374,14 +369,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
                     
                     
                     
-                    //self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string: strPictureURL)! as URL)! as Data)
-                    
-                    
-                    // let barViewControllers = self.tabBarController?.viewControllers
-                    //let svc = barViewControllers![3] as! ProfileViewController
-                    
-                    
-                    self.userFB = User()
+                   self.userFB = User()
                     
                     
                     self.userFB.setFirstName(firstName: strFirstName)
@@ -395,8 +383,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
                     self.userFB = User(firstName: strFirstName,lastName: strLastName,city: strCity,picture:strPictureURL)
                     
                     
-                    
-                    
                     vc1.user1 = self.userFB
                     
                     
@@ -408,23 +394,6 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
                 
                 
             })
-            
-            /* let accessToken = FBSDKAccessToken.current()
-             guard let accessTokenString = accessToken?.tokenString!
-             
-             
-             else {
-             return
-             }*/
-            
-            
-            //print("User logged in...")
-            
-            // let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-            
-            
-            // print("User logged in firebase app")
-            
             
             
         }
@@ -440,28 +409,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
         print("User logged out")
         
         
-       /* try! Auth.auth().signOut()
-        
-        
-        FBSDKAccessToken.setCurrent(nil)
-        
-        
-        /*usrLbl.text = ""
-         
-         cityLbl.text = ""
-         
-         imageView.image = nil*/
-        
-        
-        
-        
-        
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "login")
-        self.present(vc!, animated: true, completion: nil)
-        
-        */
-        
-        
+               
         let loginManagerFB = FBSDKLoginManager()
         
         

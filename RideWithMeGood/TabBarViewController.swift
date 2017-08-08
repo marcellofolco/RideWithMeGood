@@ -18,6 +18,9 @@ class TabBarViewController: UITabBarController {
     var user3:User = User()
     
     
+    var user4:User = User()
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

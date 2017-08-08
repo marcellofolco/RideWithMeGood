@@ -41,6 +41,13 @@ class ProfileViewController: UIViewController {
     
     var userPr3:User = User()
     
+    var userPr4:User = User()
+    
+    
+    var userStorage: StorageReference!
+    var ref: DatabaseReference!
+
+    
     
     
     
@@ -52,7 +59,16 @@ class ProfileViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         
-        let tbvc = tabBarController as! TabBarViewController
+            let storage = Storage.storage().reference(forURL: "gs://ridewithmegood.appspot.com")
+        
+            ref = Database.database().reference()
+            userStorage = storage.child("users")
+
+        
+        
+        
+        
+            let tbvc = tabBarController as! TabBarViewController
         
         
         
@@ -63,25 +79,12 @@ class ProfileViewController: UIViewController {
         
         
             self.userPr3 = tbvc.user3
-            
-            
-            
         
         
-       /* if let accessToken = FBSDKAccessToken.current() {
-            
-            self.userPr1 = tbvc.user1
-        } else if(Auth.auth().currentUser != nil){
-            
-            self.userPr2 = tbvc.user2
+            self.userPr4 = tbvc.user4
             
             
-            
-        }*/
-        
-        //self.userPr1 = tbvc.user1
-
-    }
+   }
     
    
     override func viewWillAppear(_ animated: Bool) {
@@ -90,89 +93,116 @@ class ProfileViewController: UIViewController {
         super.viewWillAppear(animated)
         
         
-        /*
-        if let accessToken1 = FBSDKAccessToken.current() {
-            
-            self.usrLbl.text = userPr1.first_Name()+" "+userPr1.last_Name()
-            
-            self.cityLbl.text = userPr1.city
-            
-            self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string: userPr1.picture)! as URL)! as Data)
-            
-            self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
-            
-            self.imageView.clipsToBounds = true;
-            
-        } else if Auth.auth().currentUser != nil{
-            
-            self.usrLbl.text = userPr2.firstName+" "+userPr2.lastName
-            
-            self.cityLbl.text = userPr2.email
-            
-            //self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string:userPr2.picture)! as URL)! as Data)
-            
-            
-            //print(userPr2.currentUser())
-            
-        }*/
         
-        
-        if(FBSDKAccessToken.current() != nil){
-        self.usrLbl.text = userPr1.first_Name()+" "+userPr1.last_Name()
-        
-        self.cityLbl.text = userPr1.city
-        
-        self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string: userPr1.picture)! as URL)! as Data)
-        
-        self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
-        
-        self.imageView.clipsToBounds = true;
-        
-        }
-        
-        if(GIDSignIn.sharedInstance().hasAuthInKeychain()){
-            
-            self.usrLbl.text = userPr2.first_Name()+" "+userPr2.last_Name()
-            
-            self.cityLbl.text = userPr2.email
-            
-            if(!userPr2.picture.isEmpty){
-            
-           //self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string:userPr2.picture)! as URL)! as Data)
-                
-                
-               // self.imageView.image = userPr2.picture
-            
+        if let providerData = Auth.auth().currentUser?.providerData {
+            for userInfo in providerData {
+                switch userInfo.providerID {
+                case "facebook.com":
+                    
+                    self.usrLbl.text = userPr1.first_Name()+" "+userPr1.last_Name()
+                    
+                    self.cityLbl.text = userPr1.city
+                    
+                     self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string: userPr1.picture)! as URL)! as Data)
+                    
+                    
+                    self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
+                    
+                    self.imageView.clipsToBounds = true;
+                    
+                    
+                    print("user is signed in with facebook")
+                    
+                case "password":
+                    
+                   
+                   
+                   
+                   let userID : String = (Auth.auth().currentUser?.uid)!
+                   
+                   self.ref.child("users").child(userID).observeSingleEvent(of: .value, with: {(snapshot) in
+                    
+                    let url = (snapshot.value as! NSDictionary)["urlToImage"]
+                    
+                    let fullName = (snapshot.value as! NSDictionary)["full name"]
+                    
+                    
+                    
+                    self.usrLbl.text = fullName as! String?
+                    
+                    self.cityLbl.text = userInfo.email
+                    
+                    self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string: url as! String)! as URL)! as Data)
+                    
+                    self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
+                    
+                    self.imageView.clipsToBounds = true;
+                    
+                    
+                    print(url)
+                    
+                    
+                   })
+
+                   
+                    print("user is signed with password")
+                    
+                    
+                case "google.com":
+                    
+                    self.usrLbl.text = userPr2.first_Name()+" "+userPr2.last_Name()
+                    
+                    self.cityLbl.text = userPr2.email
+                    
+                    if(userInfo.photoURL != nil){
+                    
+                  
+                        let url = userInfo.photoURL
+                        
+                        let data = NSData(contentsOf:url!)
+                        
+                        if (data != nil) {
+                            self.imageView.image = UIImage(data:data! as Data)
+                            
+                         } else{
+                        
+                            self.imageView.image = nil
+                            
+                        }
+                        
+                    }
+                    
+                    self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
+                    
+                    self.imageView.clipsToBounds = true;
+                    
+                     print("user is signed in with google")
+                    
+                default:
+                    
+                    
+                    self.usrLbl.text = self.userPr3.first_Name()+" "+self.userPr3.last_Name()
+                    
+                    self.cityLbl.text = self.userPr3.email
+                    
+                    self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string: userPr3.picture)! as URL)! as Data)
+                    
+                    
+                    self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
+                    
+                    self.imageView.clipsToBounds = true;
+                    
+                    
+                    print("user is signed in with \(userInfo.providerID)")
+                    
+                    
+               }
             }
-            else  {
-                
-                self.imageView.image = nil
-                
-            }
-        }
-        
-        if((Auth.auth().currentUser) != nil){
-            
-            self.usrLbl.text = self.userPr3.first_Name()+" "+self.userPr3.last_Name()
-            
-            self.cityLbl.text = self.userPr3.email
-            
-            self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string: userPr3.picture)! as URL)! as Data)
-            
-            
-            self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
-            
-            self.imageView.clipsToBounds = true;
-            
             
         }
+            
         
-        
-        
-        
-        
-        
-    }
+   }
     
     
     
@@ -183,13 +213,6 @@ class ProfileViewController: UIViewController {
         
         
         if(FBSDKAccessToken.current() != nil){
-            
-            //session.active()
-            //session.closeAndClearTokenInformation()
-           // session.close()
-            //FBSession.active = nil
-            
-            
             
             
             let loginManagerFB = FBSDKLoginManager()
@@ -207,12 +230,6 @@ class ProfileViewController: UIViewController {
                 print ("Error signing out: %@", signOutError)
             }
 
-            
-        
-            
-            
-            
-            //FBSDKProfile.setCurrent(nil)
             
             
         }
@@ -237,22 +254,13 @@ class ProfileViewController: UIViewController {
         
         
         
+       let vc2:LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "login") as! LoginViewController
+        
+       self.present(vc2, animated: true, completion: nil)
         
         
         
-        
-        let vc2:LoginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "login") as! LoginViewController
-        
-        
-        
-        
-        self.present(vc2, animated: true, completion: nil)
-        
-        
-        
-        
-        
-    }
+   }
     
     
 

@@ -27,6 +27,8 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
     var userSignUp:User = User()
     
     
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -159,6 +161,10 @@ class SignUpViewController: UIViewController, UIImagePickerControllerDelegate, U
                                 
                                 
                                 vc.user3 = self.userSignUp
+                                
+                                
+                                                                
+                                
                                 
                                 
                             }
