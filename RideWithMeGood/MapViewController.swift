@@ -10,6 +10,7 @@ import UIKit
 //import MapKit
 import Mapbox
 import CoreLocation
+import RealmSwift
 
 class MapViewController: UIViewController, UIBarPositioningDelegate, CLLocationManagerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, MGLMapViewDelegate{
     
@@ -23,12 +24,19 @@ class MapViewController: UIViewController, UIBarPositioningDelegate, CLLocationM
     
     // @IBOutlet weak var map: MKMapView!
     
-    var filters = ["Bike Shops", "Events", "Rides"]
+    var filters = ["Coffee SHops","Bike Shops", "Bike Trails", "Rides & Events"]
     var manager: CLLocationManager?
     let distanceSpan:Double = 500
+    var lastLocation:CLLocation?
+    var venues:Results<Venue>?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        addObserver(self, forKeyPath: Selector("onVenuesUpdated:"), options: API.notifications.venuesUpdated, context: nil)\
+        
+       NotificationCenter.default.addObserver(self, selector: Selector(("onVenuesUpdated")), name: NSNotification.Name(rawValue: API.notifications.venuesUpdated), object: nil);
         
         self.filterPicker.delegate = self
         self.filterPicker.dataSource = self
@@ -43,12 +51,28 @@ class MapViewController: UIViewController, UIBarPositioningDelegate, CLLocationM
         //manager.startUpdatingLocation()
         
         mapView.delegate = self
-        let point = MGLPointAnnotation()
-        point.coordinate = CLLocationCoordinate2D(latitude: 45.4882780469, longitude: -73.5837409984)
-        point.title = "Lasalle College"
-        point.subtitle = "2000 Saint-Catherine St W, Montreal, QC H3H 2T3"
         
-        mapView.addAnnotation(point)
+        let point = MGLPointAnnotation()
+        point.coordinate = CLLocationCoordinate2D(latitude: 45.552437, longitude: -73.556177)
+        point.title = "Velo Montreal"
+        point.subtitle = "3880 Rachel Est (Bourbonnière), Montreal"
+
+        let point2 = MGLPointAnnotation()
+        point.coordinate = CLLocationCoordinate2D(latitude: 45.533458, longitude: -73.567179)
+        point.title = "iBike"
+        point.subtitle = "2127 Rachel St. E (Parthenais), Montreal"
+        
+        let point3 = MGLPointAnnotation()
+        point.coordinate = CLLocationCoordinate2D(latitude: 45.485812, longitude: -73.580602)
+        point.title = "Cycle Technique"
+        point.subtitle = "788 av. Atwater (at rue Saint-Antoine E), Montreal"
+        
+        let myPlaces = [point, point2, point3]
+
+        mapView.addAnnotations(myPlaces)
+//        mapView.addAnnotation(point2)
+//        mapView.addAnnotation(point3)
+        mapView.userTrackingMode = .follow
         
         infoRef.isHidden = true
         
@@ -67,6 +91,41 @@ class MapViewController: UIViewController, UIBarPositioningDelegate, CLLocationM
         }
     }
     
+    
+//    func mapView(_ mapView: MGLMapView, viewFor annotation: MGLAnnotation) -> MGLAnnotationView? {
+//        if annotation.isKind(of: MGLUserLocation.self)
+//        {
+//            return nil
+//        }
+//        
+//        var view = mapView.dequeueReusableAnnotationView(withIdentifier: "annotationIdentifier")
+//        
+//        if view == nil
+//        {
+//            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "annotationIdentifier")
+//        }
+//        
+//        view?.canShowCallout = true
+//        
+//        return view
+//    }
+        
+//        guard annotation is MGLPointAnnotation else {
+//            return nil
+//        }
+//    
+//        let reuseIdentifier = "\(annotation.coordinate.longitude)"
+//        
+//        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier)
+//        
+//        if annotationView == nil {
+//            annotationView = MGLAnnotationView(reuseIdentifier: reuseIdentifier)
+//            
+//        }
+//        
+//        return annotationView
+//    }
+
     func mapView(_ mapView: MGLMapView, annotationCanShowCallout annotation: MGLAnnotation) -> Bool {
         
         
@@ -106,6 +165,101 @@ class MapViewController: UIViewController, UIBarPositioningDelegate, CLLocationM
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
         if let mapView = self.mapView {
 //            mapView.setRegion(region, animated: true)
+            let center = CLLocationCoordinate2D(latitude: (manager.location?.coordinate.latitude)!, longitude: (manager.location?.coordinate.longitude)!)
+            mapView.setCenter(center, zoomLevel: 15, animated: true)
+            
+            refreshVenues(location: newLocation, getDataFromFoursquare: true)
         }
+    }
+    
+    func refreshVenues(location: CLLocation?, getDataFromFoursquare:Bool = false)
+    {
+//        if filterPicker .selectedRow(inComponent: 0) == 0{
+        
+        
+        if location != nil
+        {
+            lastLocation = location
+        }
+        
+        if let location = lastLocation
+        {
+            if getDataFromFoursquare == true
+            {
+                FourSquareAPI.sharedInstance.getCoffeeShopsWithLocation(location: location)
+            }
+            
+            let realm = try! Realm()
+            
+            venues = realm.objects(Venue.self)
+            
+            for venue in venues!
+            {
+                let annotation = Annotation(title: venue.name, subtitle: venue.address, coordinate: CLLocationCoordinate2D(latitude: Double(venue.latitude), longitude: Double(venue.longitude)))
+                
+                mapView?.addAnnotation(annotation)
+                }
+            }
+        }
+//        if filterPicker .selectedRow(inComponent: 0) == 1{
+//            
+//            
+//            if location != nil
+//            {
+//                lastLocation = location
+//            }
+//            
+//            if let location = lastLocation
+//            {
+//                if getDataFromFoursquare == true
+//                {
+//                    FourSquareAPI.sharedInstance.getBikeShopsWithLocation(location: location)
+//                }
+//                
+//                let realm = try! Realm()
+//                
+//                venues = realm.objects(Venue.self)
+//                
+//                for venue in venues!
+//                {
+//                    let annotation = Annotation(title: venue.name, subtitle: venue.address, coordinate: CLLocationCoordinate2D(latitude: Double(venue.latitude), longitude: Double(venue.longitude)))
+//                    
+//                    mapView?.addAnnotation(annotation)
+//                }
+//            }
+//        }
+        
+//        if filterPicker .selectedRow(inComponent: 0) == 2{
+//            
+//            
+//            if location != nil
+//            {
+//                lastLocation = location
+//            }
+//            
+//            if let location = lastLocation
+//            {
+//                if getDataFromFoursquare == true
+//                {
+//                    FourSquareAPI.sharedInstance.getBikeTrailsWithLocation(location: location)
+//                }
+//                
+//                let realm = try! Realm()
+//                
+//                venues = realm.objects(Venue.self)
+//                
+//                for venue in venues!
+//                {
+//                    let annotation = Annotation(title: venue.name, subtitle: venue.address, coordinate: CLLocationCoordinate2D(latitude: Double(venue.latitude), longitude: Double(venue.longitude)))
+//                    
+//                    mapView?.addAnnotation(annotation)
+//                }
+//            }
+//        }
+//    }
+    
+    func onVenuesUpdated(notification:NSNotification)
+    {
+        refreshVenues(location: nil)
     }
 }
