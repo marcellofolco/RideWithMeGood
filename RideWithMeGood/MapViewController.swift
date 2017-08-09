@@ -12,6 +12,10 @@ import Mapbox
 import CoreLocation
 import RealmSwift
 
+class MyCustomPointAnnotation: MGLPointAnnotation {
+    var willUseImage: Bool = false
+}
+
 class MapViewController: UIViewController, UIBarPositioningDelegate, CLLocationManagerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, MGLMapViewDelegate{
     
     //MKMapViewDelegate
@@ -52,17 +56,17 @@ class MapViewController: UIViewController, UIBarPositioningDelegate, CLLocationM
         
         mapView.delegate = self
         
-        let point = MGLPointAnnotation()
+        let point = MyCustomPointAnnotation()
         point.coordinate = CLLocationCoordinate2D(latitude: 45.552437, longitude: -73.556177)
         point.title = "Velo Montreal"
         point.subtitle = "3880 Rachel Est (Bourbonnière), Montreal"
 
-        let point2 = MGLPointAnnotation()
+        let point2 = MyCustomPointAnnotation()
         point.coordinate = CLLocationCoordinate2D(latitude: 45.533458, longitude: -73.567179)
         point.title = "iBike"
         point.subtitle = "2127 Rachel St. E (Parthenais), Montreal"
         
-        let point3 = MGLPointAnnotation()
+        let point3 = MyCustomPointAnnotation()
         point.coordinate = CLLocationCoordinate2D(latitude: 45.485812, longitude: -73.580602)
         point.title = "Cycle Technique"
         point.subtitle = "788 av. Atwater (at rue Saint-Antoine E), Montreal"
