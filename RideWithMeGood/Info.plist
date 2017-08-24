@@ -2,13 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Maps need your location to function!</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -46,6 +39,8 @@
 	<string>475930249421678</string>
 	<key>FacebookDisplayName</key>
 	<string>RideWithMeGood</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -55,6 +50,17 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MGLMapboxAccessToken</key>
+	<string>pk.eyJ1IjoibWFyY2g4NDYiLCJhIjoiY2o1OXk5b2g4MGUxMjJ3cDFoNDUxcDNhNiJ9.EJyDLzDJr_9v3ivYKxTMSg</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Shows your location on the map and helps improve OpenStreetMap.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Maps need your location to function!</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Upload Picture</string>
 	<key>UILaunchStoryboardName</key>
@@ -78,11 +84,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>LSApplicationCategoryType</key>
-	<string></string>
-	<key>MGLMapboxAccessToken</key>
-	<string>pk.eyJ1IjoibWFyY2g4NDYiLCJhIjoiY2o1OXk5b2g4MGUxMjJ3cDFoNDUxcDNhNiJ9.EJyDLzDJr_9v3ivYKxTMSg</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Shows your location on the map and helps improve OpenStreetMap.</string>
 </dict>
 </plist>
