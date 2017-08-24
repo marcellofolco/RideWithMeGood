@@ -41,6 +41,17 @@ class WeatherVC: UIViewController, UISearchBarDelegate {
         searchBar.delegate = self
     }
     
+    // Hide Keyboard by return Button
+    func textFieldShouldReturn(_ userNameTF: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    // Hide Keyboard Gesture
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         let urlRequest = URLRequest(url: URL(string: "http://api.apixu.com/v1/forecast.json?key=9a83769b9cc643ffacf10116171907&q=\(searchBar.text!.replacingOccurrences(of: " ", with: "%20"))")!)
@@ -137,5 +148,7 @@ extension UIImageView {
         task.resume()
     }
     
+    
 }
+
 
