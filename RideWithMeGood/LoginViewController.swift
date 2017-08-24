@@ -12,6 +12,8 @@ import GoogleSignIn
 
 import FBSDKLoginKit
 
+import FirebaseAuth
+
 class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButtonDelegate,GIDSignInDelegate{
     
     @IBOutlet weak var gifView: UIImageView!
@@ -56,12 +58,41 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
         googleButton.layer.cornerRadius = 18
         view.addSubview(googleButton)
         
-        GIDSignIn.sharedInstance().uiDelegate = self
+       GIDSignIn.sharedInstance().uiDelegate = self
+        
+        
+        GIDSignIn.sharedInstance().delegate = self
+        
         GIDSignIn.sharedInstance().signInSilently()
         
     }
+    
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        GIDSignIn.sharedInstance().uiDelegate = self
+        
+        GIDSignIn.sharedInstance().signInSilently()
+    }
+    
+    // Hide Keyboard by return Button
+    func textFieldShouldReturn(_ userNameTF: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    // Hide Keyboard Gesture
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    
+    
+    
 
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
         
     }
@@ -120,6 +151,38 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
             
             //let  user = Auth.auth().currentUser
             
+            //GIDSignIn.sharedInstance().currentUser.profile.familyName
+            
+            
+            print("Successfully logged into Google", user)
+            
+            guard let idToken = user.authentication.idToken else { return }
+            
+            guard let accessToken = user.authentication.accessToken else { return }
+            
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
+            
+            
+            Auth.auth().signIn(with: credential, completion: { (user,error) in
+                if let error = error {
+                    print("Failed to create a Firebase user with Google Account", error)
+                    return
+                }
+                
+                guard let uid = user?.uid else { return }
+                print ("Successfully logged into Firebase with Google", uid)
+                
+            })
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
             
             
             
@@ -143,19 +206,28 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
             let strCity:String = ""
             
             let strEmail:String = user.profile.email
+            if user.profile.hasImage
+            {
+                let picture: String = String(describing: user.profile.imageURL(withDimension: 100))
+                
+                
+                //let picture:String = user.profile.imageURL(withDimension: 100)
+                
+                self.userGG = User()
+                
+                
+                self.userGG.setPicture(picture: picture)
+                
+                
+                
+            }
             
-            let picture: String = String(describing: user.profile.imageURL(withDimension: 100))
             
             
-            
-            
+                
             let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabBarVC") as! TabBarViewController
             
             self.present(viewController, animated: true, completion: nil)
-            
-            
-            
-            self.userGG = User()
             
             
             self.userGG.setFirstName(firstName: strFirst)
@@ -168,7 +240,8 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
             
             
             
-            self.userGG = User(firstName: strFirst,lastName: strLast,email: strEmail,picture:picture)
+           // self.userGG = User(firstName: strFirst,lastName: strLast,email: strEmail,picture:picture)
+            
             
             
             
@@ -189,6 +262,54 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
         
         
     }
+    
+    
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        // Perform any operations when the user disconnects from app here.
+        // ...
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+   /* func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        // ...
+        if let error = error {
+            print("Failed to log into Google", error)
+            return
+        }
+        print("Successfully logged into Google", user)
+        
+        guard let idToken = user.authentication.idToken else { return }
+        
+        guard let accessToken = user.authentication.accessToken else { return }
+        
+        let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
+        
+        
+        Auth.auth().signIn(with: credential, completion: { (user,error) in
+            if let error = error {
+                print("Failed to create a Firebase user with Google Account", error)
+                return
+            }
+            
+            guard let uid = user?.uid else { return }
+            print ("Successfully logged into Firebase with Google", uid)
+            
+        })
+    }
+
+    
+    */
+    
+    
+    
     
     
     
@@ -331,7 +452,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
         print("User logged out")
         
         
-        try! Auth.auth().signOut()
+       /* try! Auth.auth().signOut()
         
         
         FBSDKAccessToken.setCurrent(nil)
@@ -349,6 +470,34 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate,FBSDKLoginButto
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "login")
         self.present(vc!, animated: true, completion: nil)
+        
+        */
+        
+        
+        let loginManagerFB = FBSDKLoginManager()
+        
+        
+        
+        loginManagerFB.logOut()
+        
+        
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            
+            FBSDKAccessToken.setCurrent(nil)
+            
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "login")
+            self.present(vc!, animated: true, completion: nil)
+            
+
+            
+            
+            
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
         
         
         

@@ -25,7 +25,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var usrLbl: UILabel!
     
     
-    @IBOutlet weak var cityLbl: UILabel!
+    
+    @IBOutlet weak var cityLbl: UITextField!
     
     
     @IBOutlet weak var imageView: UIImageView!
@@ -38,6 +39,8 @@ class ProfileViewController: UIViewController {
     var userPr1:User = User()
     
     var userPr2:User = User()
+    
+    var userPr3:User = User()
     
     
     
@@ -52,6 +55,20 @@ class ProfileViewController: UIViewController {
         
         let tbvc = tabBarController as! TabBarViewController
         
+        
+        
+            self.userPr1 = tbvc.user1
+        
+            
+            self.userPr2 = tbvc.user2
+        
+        
+            self.userPr3 = tbvc.user3
+            
+            
+            
+        
+        
        /* if let accessToken = FBSDKAccessToken.current() {
             
             self.userPr1 = tbvc.user1
@@ -63,8 +80,19 @@ class ProfileViewController: UIViewController {
             
         }*/
         
-        self.userPr1 = tbvc.user1
+        //self.userPr1 = tbvc.user1
 
+    }
+    
+    // Hide Keyboard by return Button
+    func textFieldShouldReturn(_ userNameTF: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
+    // Hide Keyboard Gesture
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
    
@@ -101,17 +129,58 @@ class ProfileViewController: UIViewController {
         }*/
         
         
-        
-        
+        if(FBSDKAccessToken.current() != nil){
         self.usrLbl.text = userPr1.first_Name()+" "+userPr1.last_Name()
         
         self.cityLbl.text = userPr1.city
         
-        self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string: userPr1.picture)! as URL)! as Data)
+//        self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string: userPr1.picture)! as URL)! as Data)
         
         self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
         
         self.imageView.clipsToBounds = true;
+        
+        }
+        
+        if(GIDSignIn.sharedInstance().hasAuthInKeychain()){
+            
+            self.usrLbl.text = userPr2.first_Name()+" "+userPr2.last_Name()
+            
+            //self.cityLbl.text = userPr2.email
+            
+            if(!userPr2.picture.isEmpty){
+            
+           self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string:userPr2.picture)! as URL)! as Data)
+                
+                
+               // self.imageView.image = userPr2.picture
+            
+            }
+            else  {
+                
+                self.imageView.image = nil
+                
+            }
+        }
+        
+        if((Auth.auth().currentUser) != nil){
+            
+            self.usrLbl.text = self.userPr3.first_Name()+" "+self.userPr3.last_Name()
+            
+            //self.cityLbl.text = self.userPr3.email
+            
+            self.imageView.image = UIImage(data: NSData(contentsOf: NSURL(string: userPr3.picture)! as URL)! as Data)
+            
+            
+            self.imageView.layer.cornerRadius = self.imageView.frame.size.width / 2;
+            
+            self.imageView.clipsToBounds = true;
+            
+            
+        }
+        
+        
+        
         
         
         
@@ -122,9 +191,64 @@ class ProfileViewController: UIViewController {
     @IBAction func Logout(_ sender: Any) {
         
         
-        let loginManager = FBSDKLoginManager()
         
-        loginManager.logOut()
+        
+        
+        if(FBSDKAccessToken.current() != nil){
+            
+            //session.active()
+            //session.closeAndClearTokenInformation()
+           // session.close()
+            //FBSession.active = nil
+            
+            
+            
+            
+            let loginManagerFB = FBSDKLoginManager()
+            
+            FBSDKAccessToken.setCurrent(nil)
+            
+             loginManagerFB.logOut()
+            
+            loginManagerFB.loginBehavior = FBSDKLoginBehavior.web
+          
+            do{
+                try Auth.auth().signOut()
+                
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
+
+            
+        
+            
+            
+            
+            //FBSDKProfile.setCurrent(nil)
+            
+            
+        }
+        
+        if(GIDSignIn.sharedInstance().hasAuthInKeychain()){
+            
+            
+            let loginManagerGG = GIDSignIn.sharedInstance()
+            
+            loginManagerGG?.signOut()
+            
+        }
+        
+        if(Auth.auth().currentUser != nil){
+            
+            
+            try! Auth.auth().signOut()
+            
+            
+        }
+        
+        
+        
+        
         
         
         

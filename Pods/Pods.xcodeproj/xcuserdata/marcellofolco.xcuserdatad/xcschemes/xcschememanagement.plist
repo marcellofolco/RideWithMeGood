@@ -59,6 +59,21 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>QuadratTouch.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RealmSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>nanopb.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,12 +82,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>13403D0AE3DC1FC2D29730B5A0BBD493</key>
+		<key>253343503242E3A65881B04FEB005FE3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>253343503242E3A65881B04FEB005FE3</key>
+		<key>2E57AE1BB723203B33787BE9272EB963</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>43D1D4525D396EA877DA828513B1A1BE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,12 +107,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B1C4AAFAF49036C7007633DAA3C806AD</key>
+		<key>7E37B9395211F32D0C7B1C2E96FEC25E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B4CC71B3394A4822693797551BE96CAE</key>
+		<key>B1C4AAFAF49036C7007633DAA3C806AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,22 +127,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BFAE4735022DAB50EBF32EBB08307622</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>C0D8BFA72D5D8C9FFC99A45232DD99B1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C2DCF8A32A24F41BB9FEF13E7460E0BE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D442A1063E1FD2A0AB8ACF96C63173A4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,7 +147,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FB1220D99A129A56E8743176A3846A07</key>
+		<key>F212C10C013894E0968425BCD4A980DA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FCCEA09E348E3D7C4CD9091FDA0D83FF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
